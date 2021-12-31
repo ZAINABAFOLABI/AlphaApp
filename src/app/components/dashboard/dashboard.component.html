@@ -1,0 +1,166 @@
+<div class="wrapper">
+  <div class="sidebar">
+    <ul class="list-unstyled">
+      <li class="pt-3"> 
+          <span class="icon text-cobalt rounded-3 pr-1"><i class="fab fa-stripe-s round-padding text-light"></i></span>
+          <span class="item text-cobalt font-weight-medium ">Express Lands</span>
+      </li>
+      <li class="pl-1 pt-8"> 
+        <a routerLink="/login" class="current" >
+          <span class="icon pr-2 text-info"><i class="fas fa-home"></i></span>
+          <span class="item text-cobalt font-weight-medium ">Dashboard</span>
+        </a>
+      </li>
+      <li class="pl-1 pt-3"> 
+        <a href="">
+          <span class="icon pr-2"><i class="fas fa-hand-holding-usd"></i></span>
+          <span class="item text-dark">Menu Item 1</span>
+        </a>
+      </li>
+      <li class="pl-1 pt-3"> 
+        <a href="">
+          <span class="icon pr-2"><i class="fas fa-users"></i></span>
+          <span class="item text-dark">Menu Item 2</span>
+        </a>
+      </li>
+      <li class="pl-1 pt-3"> 
+        <a href="">
+          <span class="icon pr-2"><i class="fas fa-coins"></i></span>
+          <span class="item text-dark">Menu Item 3</span>
+        </a>
+      </li>
+      <li class="pl-1 pt-3"> 
+        <a href="">
+          <span class="icon pr-2"><i class="fas fa-check-circle"></i></span>
+          <span class="item text-dark">Menu Item 4</span>
+        </a>
+      </li>
+      <li class="pl-1 pt-3"> 
+        <a href="">
+          <span class="icon pr-2"><i class="fas fa-book"></i></span>
+          <span class="item text-dark">Menu Item 5</span>
+        </a>
+      </li>
+      <li class="pl-1 pt-10"> 
+        <a href="">
+          <span class="icon pr-2 "><i class="fas fa-user-cog"></i></span>
+          <span class="item text-dark">Manage Users</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+<div class="main-section ">
+  
+  <div class="dropdown">
+  <!-- <i class="fas fa-grip-lines fa-2x dropdown-toggle" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+   </i> -->
+   <div class="dropdown d-inline">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+     
+    </button>
+    <ul class="dropdown-menu pl-1 bg-cobalt width-md height-md" aria-labelledby="dropdownMenu2">
+     <li class="text-primary2 pt-3" >WELCOME BACK! {{client.firstName}} {{client.lastName}}.</li>
+     <li class=" text-white">See overview of analytics and reporting metrics and a lot more interesting stuffs you can do here.</li>
+     <button class="btn-light text-cobalt rounded-3 btn-lg ">Take A Tour</button>
+    </ul>
+  </div>
+
+
+  <span class= "pl-500">
+   
+  <ul class="list-inline mt-0 pl-500 ">
+    <li class="list-inline-item bg-lightt rounded-5">
+  <h5 class="reminder ">Notifications Center </h5><br>
+  <figcaption class="blockquote-footer pb-1">
+  You have <strong class="text-dark">2</strong>  unread notifications. <span class="bg-coral rounded-3 text-white">2</span></figcaption>
+</li>
+ 
+<li class="list-inline-item bg-lightt rounded-5 ">
+   <!-- <span class="icon"><i class="far fa-user"></i></span> -->
+   <h5 class="pb-1">{{user}}</h5><br>
+    <figcaption class="blockquote-footer ">Vanity By Juls <span class="  rounded-3 p-design">  <a routerLink='/logout' class="text-white " ><i class="fas fa-power-off   text-white rounded-3"></i>Log out</a></span> </figcaption> 
+
+
+  
+  
+  </ul>
+</span>
+<span>
+ <!-- <p>Dashboard</p> -->
+ <span class="text-start text-cobalt">Dashboard</span>
+<p class="text-end pr-2">  <i class="fas fa-wrench fa-2x pr-1 text-cobalt"></i> <span class="text-cobalt pr-2">Customize Dashboard </span>  <span class="text-gray pr-1">|</span>   Mon,Jun 22, 2020</p>
+</span>
+
+
+<div class="box">
+  <div class="box-2 mr-50">
+
+   <ul class="list-linline pl-1 bg-cobalt width-md height-md list-inline rounded-3 ">
+    <li class="text-primary2 list-unstyled pt-3" >WELCOME BACK! {{client.firstName}} {{client.lastName}}.</li>
+    <li class=" text-white list-unstyled">See overview of analytics and reporting metrics and a lot more interesting stuffs you can do here.</li>
+    <button class="btn-light text-cobalt rounded-3 btn-lg ">Take A Tour</button>
+     </ul> 
+    </div>
+
+
+  <div class="box-2">
+    <ul class="list-inline pl-1 width-md height-md bg-cobalt-light text-start rounded-3 pt-3">
+  <li class=" pl-1 text-cobalt list-inline-item ">OPTIMIZED APPLICATION PROCESSING</li>
+  <li class=" pl-1 list-inline-item ">We've optimized the system to process your application as fast as possible. 
+    <strong>
+   Click on the button below to get started.</strong></li>
+  <button class="btn-lg bg-cobalt text-light">New Request</button>
+</ul>
+</div>
+</div>
+</div> 
+ 
+<div class="clear"></div>
+
+<div class="report-box">
+  <div class="report-box1 pt-2 pl-2  mr-3">
+   <p class="pt-2 font-bold"> Annual Play Budget</p>
+   <p>Summary</p>
+   <!-- <div class="chart-wrapper">
+    <canvas baseChart 
+    [data]="pieChartData" 
+    [labels]="pieChartLabels" 
+    [chartType]="pieChartType"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+  </canvas>
+</div> -->
+   <p>Total Play(NGN) <br> {{client.annualPlayBudget.totalPlay}} </p>
+   <span><i class="far fa-circle text-primary"></i>Total Spent</span>
+   <p>Total Spent(NGN) <br> {{client.annualPlayBudget.totalSpent}} </p>
+   <p>Balance(NGN) <br> {{client.annualPlayBudget.balance}} </p>
+
+  </div>
+  <div class="report-box2 pl-2 text-white ">
+    <div class="">
+    <p class="pt-2 font-bold text-white">Cards Count</p>
+    <p class="text-white">Summary</p>
+  </div>
+ 
+    <p class=" text-white">Total Cards <br> <span class="font-bold"></span> {{client.totalCards.totalCards}} </p>
+    <span><i class="far fa-circle text-warning"></i>In-use</span>
+    <p>Cards In-use <br> {{client.totalCards.cardsInUse}} </p>
+    <p>Cards In-active <br> {{client.totalCards.inactive}} </p>
+
+  </div>
+  <div class="report-summary pl-2">
+
+    <p class="pt-2 font-bold"> Annual Work Budget</p>
+    <p>Summary</p>
+    <p>Total Work(NGN) <br> {{client.annualWorkBudget.totalWork}} </p>
+    <span><i class="far fa-circle text-coral"></i>Total Spent</span>
+    <p>Total Spent(NGN) <br> {{client.annualWorkBudget.totalSpent}} </p>
+    <p>Balance(NGN) <br> {{client.annualWorkBudget.balance}} </p>
+  </div>
+</div>
+  <div class="clear"></div>
+
+

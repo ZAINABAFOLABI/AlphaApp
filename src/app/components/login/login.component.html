@@ -1,0 +1,52 @@
+<div class="row bg-light pt-4 ">
+<div class="col-md-6 mx-auto pl-30">
+
+   
+     <h6 class="pb-4 pt-8 text-primary">
+      <i class="fab fa-stripe-s round-padding text-light"></i> <span class="text-cobal"> Express Lands</span>
+     </h6><br>
+     <h1 class="text-dark"><strong>Login to <br> your account</strong></h1>
+     <p class="text-dark pt-3"> Welcome back!Please login to your account</p>
+     <!-- <form submit="onSubmit()">
+       <div class="form-group   pt-3">
+         
+         <input class="form-control pt-3 input-light" type="email" name="email" 
+         [(ngModel)]="email" required
+         
+          placeholder="KTS12562892 |"><br>
+       </div>
+       <div class="form-group ">
+        
+         <input class="form-control pt-3 input-light" type="password" name="password" 
+          [(ngModel)]="password" required
+          placeholder="Enter Password"><br>
+       </div>
+       <a routerLink="/dashboard"><input class="btn  btn-lge text-light " type="submit" value="LOG IN"></a><br>
+      <a routerLink=""> <input class="btn btn-light btn-block text-info" type="submit" value="Forgot Password?"></a>
+     </form> -->
+
+     <form (ngSubmit)="validateLogin()" >
+       <div class="form-group  pt-3">
+         
+         <input class="form-control pt-3 input-light" type="email" name="email" 
+         formControlName="email"
+         
+          placeholder="KTS12562892 |"><br>
+       </div>
+       <div class="form-group ">
+        
+         <input class="form-control pt-3 input-light" type="password" name="password" 
+         formControlName="password"
+          placeholder="Enter Password"><br>
+       </div>
+       <a routerLink="/dashboard">
+         <input class="btn  btn-lge text-light " type="submit" value="LOG IN"
+         (click)="validateLogin()"
+                     >
+        </a>
+        <br>
+      <a routerLink=""> <input class="btn btn-light btn-block text-info" type="submit" value="Forgot Password?"></a>
+     </form>
+   
+</div>
+</div>

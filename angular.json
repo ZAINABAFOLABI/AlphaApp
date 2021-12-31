@@ -98,6 +98,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "angularalphaproject:build:production",
+            "firebaseProject": "alphaapp-16065",
+            "firebaseHostingSite": "alphaapp-16065"
+          }
         }
       }
     }
