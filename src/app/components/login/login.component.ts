@@ -21,8 +21,8 @@ password:string='';
   constructor(
     private authService:AuthService,
     private router:Router,
-    private provideMessaging:Messaging,
-    private formBuilder: FormBuilder
+    private provideMessaging:Messaging
+   
   ) { 
    
   }
