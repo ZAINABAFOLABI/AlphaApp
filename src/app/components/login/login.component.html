@@ -25,7 +25,7 @@
       <a routerLink=""> <input class="btn btn-light btn-block text-info" type="submit" value="Forgot Password?"></a>
      </form> -->
 
-     <form (ngSubmit)="validateLogin()" >
+     <div formGroup="loginForm (ngSubmit)="validateLogin()" >
        <div class="form-group  pt-3">
          
          <input class="form-control pt-3 input-light" type="email" name="email" 
@@ -46,7 +46,7 @@
         </a>
         <br>
       <a routerLink=""> <input class="btn btn-light btn-block text-info" type="submit" value="Forgot Password?"></a>
-     </form>
+     </div>
    
 </div>
 </div>
