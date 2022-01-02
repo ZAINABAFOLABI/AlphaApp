@@ -10,10 +10,9 @@ import { Router  } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-loginForm:FormGroup= this.formBuilder.group({
-  email: ["", Validators.email],
-  password: ["", Validators.required]
-
+loginForm:FormGroup=new FormGroup ({
+  email:new FormControl ("", Validators.email),
+  password:new FormControl ("", Validators.required)
 });
 loginFormLoading: boolean = false;
 email:string='';
@@ -25,15 +24,14 @@ password:string='';
     private provideMessaging:Messaging,
     private formBuilder: FormBuilder
   ) { 
-    this.createForm();
+   
   }
  
 
   ngOnInit(): void {
    
   }
-  createForm() {
-    this.loginForm }
+ 
 
     validateLogin() {
       this.loginFormLoading = true;
@@ -44,7 +42,7 @@ password:string='';
   
       };
     }
-  onSubmit(loginForm:any){
+  onSubmit(loginForm:formGroup){
   
     console.log(loginForm);
     // this.authService.Login(this.email,this.password)
