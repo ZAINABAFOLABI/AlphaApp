@@ -1,13 +1,4 @@
 {
-  "targets": {
-    "alphaapp-16065": {
-      "hosting": {
-        "angularalphaproject": [
-          "alphaapp-16065"
-        ]
-      }
-    }
-  },
   "projects": {
     "default": "alphaapp-16065"
   }

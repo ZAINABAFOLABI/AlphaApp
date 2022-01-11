@@ -24,29 +24,53 @@
        <a routerLink="/dashboard"><input class="btn  btn-lge text-light " type="submit" value="LOG IN"></a><br>
       <a routerLink=""> <input class="btn btn-light btn-block text-info" type="submit" value="Forgot Password?"></a>
      </form> -->
-
-     <form (ngSubmit)="validateLogin()" >
+<!-- 
+     <form   >
        <div class="form-group  pt-3">
          
          <input class="form-control pt-3 input-light" type="email" name="email" 
-         formControlName="email"
+        
          
           placeholder="KTS12562892 |"><br>
        </div>
        <div class="form-group ">
         
          <input class="form-control pt-3 input-light" type="password" name="password" 
-         formControlName="password"
+        
           placeholder="Enter Password"><br>
        </div>
        <a routerLink="/dashboard">
          <input class="btn  btn-lge text-light " type="submit" value="LOG IN"
-         (click)="validateLogin()"
-                     >
+           >
         </a>
         <br>
       <a routerLink=""> <input class="btn btn-light btn-block text-info" type="submit" value="Forgot Password?"></a>
-     </form>
+     </form> -->
+
+    <div formGroup="loginForm" (ngSubmit)="validateLogin">
+      <div class="form-group  pt-3">
+        
+        <input class="form-control pt-3 input-light" type="email" name="email" 
+        formControlName="email"
+        
+         placeholder="KTS12562892 |"  #email required><br>
+      </div>
+      <div class="form-group ">
+       
+        <input class="form-control pt-3 input-light" type="password" name="password" 
+        formControlName="password"
+         placeholder="Enter Password"  #password required><br>
+      </div>
+      <a routerLink="/dashboard">
+        <input class="btn  btn-lge text-light " type="submit" value="LOG IN"
+       
+                    >
+       </a>
+       <br>
+     <a routerLink=""> <input class="btn btn-light btn-block text-info" type="submit" value="Forgot Password?"></a>
+    </div>
+
+    <!-- (click)="authService.SignIn" -->
    
 </div>
 </div>

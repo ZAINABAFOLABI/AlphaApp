@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart, ChartType,ChartOptions,ChartDataset } from 'chart.js';
+import { Chart,registerables  } from 'chart.js';
+
+import { getMaxListeners } from 'process';
 
 
 import { User } from 'src/app/model/user';
+import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -11,24 +14,22 @@ import { User } from 'src/app/model/user';
 export class DashboardComponent 
 implements OnInit {
 
-  public pieChartOptions: ChartOptions = {
-    responsive: true,
-  };
-  
-  // public pieChartLabels: Label[] = ['PHP', '.Net', 'Java'];
-  // public pieChartData: SingleDataSet = [50, 30, 20];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartPlugins = [];
+  result:any;
+  coinPrice:any;
+  coinName:any;
+  chart:any=[];
+
   
 user="Chidimma Nwanya";
 client:User;
-  constructor() {
-    // monkeyPatchChartJsTooltip();
-    // monkeyPatchChartJsLegend();
+  constructor(private service:DataService) {
+    Chart.register(...registerables)
+   
     this.client={
       firstName:'Chidimma',
       lastName:'Nwanya',
+      email:'zainab.o.afolabi@getMaxListeners.com',
+      password:'AlphaApp',
       annualPlayBudget:{
         totalPlay:50000000,
         totalSpent:32000000,
@@ -48,8 +49,54 @@ client:User;
     }
    }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() {
+   this.service.cryptoData().then((res)=>{
+     this.result=res
+     this.coinPrice=this.result.data.coins.map((coin:any)=>coin.price)
+     this.coinName=this.result.data.coins.map((coin:any)=>coin.name)
+     console.log(this.coinPrice,this.coinName);
+
+     //Show Chart data
+   this.chart=new Chart('canvas',{
+    type:'line',
+    data: {
+     labels: this.coinName,
+     datasets: [
+       {
+         label: 'Coin Price',
+         data: this.coinPrice,
+         fill:false,
+         borderWidth: 3,
+         backgroundColor:'rgba(93, 175,89,0.1)',
+         borderColor:'#3e95cd'
+     },
+   ],
+ },
+  });
+ 
+
+   });
+
+
+  //  //Show Chart data
+  //  this.chart=new Chart('canvas',{
+  //    type:'line',
+  //    data: {
+  //     labels: this.coinName,
+  //     datasets: [
+  //       {
+  //         label: 'Coin Price',
+  //         data: this.coinPrice,
+  //         fill:false,
+  //         borderWidth: 3,
+  //         backgroundColor:'rgba(93, 175,89,0.1)',
+  //         borderColor:'#3e95cd'
+  //     },
+  //   ],
+  // },
+  //  });
+  // } 
 
 }
 
+}

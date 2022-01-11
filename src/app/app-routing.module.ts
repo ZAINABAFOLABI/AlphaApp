@@ -4,8 +4,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+// import { AuthGuard } from './guards/auth.guard';
 
 const routes:Routes=[
+  {path:'', redirectTo:'login', pathMatch:'full'},
   {path:'dashboard',component:DashboardComponent},
   {path:'login',component:LoginComponent},
   {path:'**',component:NotFoundComponent}

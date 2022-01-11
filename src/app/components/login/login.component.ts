@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,FormBuilder,Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth.service';
+// import { AuthService } from 'src/app/services/auth.service';
 import { Messaging, provideMessaging } from '@angular/fire/messaging';
 import { Router  } from '@angular/router';
 
@@ -10,9 +10,9 @@ import { Router  } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-loginForm:FormGroup= this.formBuilder.group({
-  email: ["", Validators.email],
-  password: ["", Validators.required]
+loginForm:FormGroup=new FormGroup ({
+  email:new FormControl ("", Validators.email),
+  password:new FormControl ("", Validators.required)
 
 });
 loginFormLoading: boolean = false;
@@ -20,20 +20,20 @@ email:string='';
 password:string='';
 
   constructor(
-    private authService:AuthService,
+    // private authService:AuthService,
     private router:Router,
-    private provideMessaging:Messaging,
-    private formBuilder: FormBuilder
+    private provideMessaging:Messaging
+  
   ) { 
-    this.createForm();
+    // this.createForm();
   }
  
 
   ngOnInit(): void {
    
   }
-  createForm() {
-    this.loginForm }
+  // createForm() {
+  //   this.loginForm }
 
     validateLogin() {
       this.loginFormLoading = true;
@@ -44,7 +44,7 @@ password:string='';
   
       };
     }
-  onSubmit(loginForm:any){
+  onSubmit(loginForm:FormGroup){
   
     console.log(loginForm);
     // this.authService.Login(this.email,this.password)

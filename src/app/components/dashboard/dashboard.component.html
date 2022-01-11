@@ -123,16 +123,10 @@
   <div class="report-box1 pt-2 pl-2  mr-3">
    <p class="pt-2 font-bold"> Annual Play Budget</p>
    <p>Summary</p>
-   <!-- <div class="chart-wrapper">
-    <canvas baseChart 
-    [data]="pieChartData" 
-    [labels]="pieChartLabels" 
-    [chartType]="pieChartType"
-    [options]="pieChartOptions"
-    [plugins]="pieChartPlugins"
-    [legend]="pieChartLegend">
-  </canvas>
-</div> -->
+   <div width="400px" height="400px ">
+    <canvas id="canvas"> {{chart}} </canvas>
+   </div>
+  
    <p>Total Play(NGN) <br> {{client.annualPlayBudget.totalPlay}} </p>
    <span><i class="far fa-circle text-primary"></i>Total Spent</span>
    <p>Total Spent(NGN) <br> {{client.annualPlayBudget.totalSpent}} </p>
@@ -151,7 +145,7 @@
     <p>Cards In-active <br> {{client.totalCards.inactive}} </p>
 
   </div>
-  <div class="report-summary pl-2">
+  <div class="report-summary pl-2"> 
 
     <p class="pt-2 font-bold"> Annual Work Budget</p>
     <p>Summary</p>
@@ -163,4 +157,8 @@
 </div>
   <div class="clear"></div>
 
+  
 
+<!-- 
+    <canvas id="canvas "> {{chart}} </canvas> -->
+ 
