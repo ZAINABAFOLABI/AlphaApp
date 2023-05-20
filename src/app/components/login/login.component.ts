@@ -22,28 +22,28 @@ password:string='';
     private authService:AuthService,
     private router:Router,
     private provideMessaging:Messaging
-   
-  ) { 
-   
+
+  ) {
+
   }
- 
+
 
   ngOnInit(): void {
-   
+
   }
- 
+
 
     validateLogin() {
       this.loginFormLoading = true;
       let data = {
-        
+
         email: this.loginForm.value.email,
         password: this.loginForm.value.password
-  
+
       };
     }
-  onSubmit(loginForm:formGroup){
-  
+  onSubmit(loginForm:FormGroup){
+
     console.log(loginForm);
     // this.authService.Login(this.email,this.password)
     // .then(res=>{
@@ -52,7 +52,7 @@ password:string='';
     //   });
     //   this.router.navigate([/]);
     // })
- 
+
   }
 
 
