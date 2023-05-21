@@ -3,7 +3,7 @@
     <ul class="list-unstyled">
       <li class="pt-3">
           <span class="icon text-cobalt rounded-3 pr-1"><i class="fab fa-stripe-s round-padding text-light"></i></span>
-          <span class="item text-cobalt font-weight-medium ">Express Lands</span>
+          <span class="item text-cobalt font-weight-medium ">Alpha</span>
       </li>
       <li class="pl-1 pt-8">
         <a routerLink="/dashboard" class="current" >
@@ -13,43 +13,43 @@
       </li>
       <li class="pl-1 pt-3">
         <a href="">
-          <span class="icon pr-2"><i class="fas fa-hand-holding-usd"></i></span>
+          <span class="icon pr-2 text-primary"><i class="fas fa-hand-holding-usd"></i></span>
           <span class="item text-dark">Income & Expenses</span>
         </a>
       </li>
       <li class="pl-1 pt-3">
         <a href="">
-          <span class="icon pr-2"><i class="fas fa-users"></i></span>
+          <span class="icon pr-2 text-primary"><i class="fas fa-users"></i></span>
           <span class="item text-dark">Marketing</span>
         </a>
       </li>
       <li class="pl-1 pt-3">
         <a href="">
-          <span class="icon pr-2"><i class="fas fa-coins"></i></span>
+          <span class="icon pr-2 text-primary"><i class="fas fa-receipt"></i></span>
           <span class="item text-dark">Utilities</span>
         </a>
       </li>
       <li class="pl-1 pt-3">
         <a href="">
-          <span class="icon pr-2"><i class="fas fa-check-circle"></i></span>
+          <span class="icon pr-2 text-primary"><i class="fas fa-check-circle"></i></span>
           <span class="item text-dark">Raw materials</span>
         </a>
       </li>
       <li class="pl-1 pt-3">
         <a href="">
-          <span class="icon pr-2"><i class="fas fa-book"></i></span>
+          <span class="icon pr-2 text-primary"><i class="fas fa-balance-scale"></i></span>
           <span class="item text-dark">Legal</span>
         </a>
       </li>
       <li class="pl-1 pt-3">
         <a href="">
-          <span class="icon pr-2"><i class="fas fa-book"></i></span>
+          <span class="icon pr-2 text-primary"><i class="fas fa-money-check-alt"></i></span>
           <span class="item text-dark">Sales</span>
         </a>
       </li>
       <li class="pl-1 pt-10">
-        <a href="">
-          <span class="icon pr-2 "><i class="fas fa-user-cog"></i></span>
+        <a routerLink="/default">
+          <span class="icon pr-2 text-primary "><i class="fas fa-user-cog"></i></span>
           <span class="item text-dark">Manage Users</span>
         </a>
       </li>
@@ -116,8 +116,8 @@
   <li class=" pl-1 text-cobalt list-inline-item ">OPTIMIZED APPLICATION PROCESSING</li>
   <li class=" pl-1 list-inline-item ">We've optimized the system to process your application as fast as possible.
     <strong>
-   Click on the button below to get started.</strong></li>
-  <button class="btn-lg bg-cobalt text-light">New Request</button>
+   Click on the button below to get started.</strong></li><br>
+  <button class="btn-light text-cobalt rounded-3 btn-lg">New Request</button>
 </ul>
 </div>
 </div>
@@ -127,44 +127,57 @@
 
 <div class="report-box">
   <div class="report-box1 pt-2 pl-2  mr-3">
-   <p class="pt-2 font-bold"> Annual Play Budget</p>
+   <p class="pt-2 font-bold">  Budget Performance Analysis</p>
    <p>Summary</p>
-   <!-- <div class="chart-wrapper">
-    <canvas baseChart
-    [data]="pieChartData"
-    [labels]="pieChartLabels"
-    [chartType]="pieChartType"
-    [options]="pieChartOptions"
-    [plugins]="pieChartPlugins"
-    [legend]="pieChartLegend">
-  </canvas>
-</div> -->
-   <p>Total Play(NGN) <br> {{client.annualPlayBudget.totalPlay}} </p>
+   <img class="text-center" width="180px" height="180px" src="https://apexcharts.com/wp-content/uploads/2018/01/dynamic-realtime-line-chart.svg" alt="">
+   <ul class="text-primary text-deco-1">
+    <li>Develop annual budget</li><br>
+    <li>Optimize budget performance</li><br>
+    <li>Refine budget with insights</li><br>
+    <li>Understand budget challenges </li><br>
+   </ul>
+
+   <!-- <p>Total Play(NGN) <br> {{client.annualPlayBudget.totalPlay}} </p>
    <span><i class="far fa-circle text-primary"></i>Total Spent</span>
    <p>Total Spent(NGN) <br> {{client.annualPlayBudget.totalSpent}} </p>
-   <p>Balance(NGN) <br> {{client.annualPlayBudget.balance}} </p>
+   <p>Balance(NGN) <br> {{client.annualPlayBudget.balance}} </p> -->
 
   </div>
-  <div class="report-box2 pl-2 text-white ">
+  <div class="report-box2 pl-2 text-dark ">
     <div class="">
-    <p class="pt-2 font-bold text-white">Cards Count</p>
+    <p class="pt-2 font-bold text-dark">Marketing Insights</p>
     <p class="text-white">Summary</p>
+    <img class="text-center" width="180px" height="180px" src="https://i.stack.imgur.com/7l3bR.png" alt="">
+    <ul  class=" text-primary text-deco-1">
+      <li>Curate smart marketing budget</li><br>
+      <li>Model desired marketing outcomes</li><br>
+      <li>Picture actual marketing result</li><br>
+      <li>Refine marketing strategy</li><br>
+    </ul>
   </div>
 
-    <p class=" text-white">Total Cards <br> <span class="font-bold"></span> {{client.totalCards.totalCards}} </p>
+    <!-- <p class=" text-white">Total Cards <br> <span class="font-bold"></span> {{client.totalCards.totalCards}} </p>
     <span><i class="far fa-circle text-warning"></i>In-use</span>
     <p>Cards In-use <br> {{client.totalCards.cardsInUse}} </p>
-    <p>Cards In-active <br> {{client.totalCards.inactive}} </p>
+    <p>Cards In-active <br> {{client.totalCards.inactive}} </p> -->
 
   </div>
   <div class="report-summary pl-2">
 
-    <p class="pt-2 font-bold"> Annual Work Budget</p>
+    <p class="pt-2 font-bold"> Profitability at a Glance</p>
     <p>Summary</p>
-    <p>Total Work(NGN) <br> {{client.annualWorkBudget.totalWork}} </p>
+    <img class="text-center" width="180px" height="180px" src="https://cdn.jifo.co/js/shared/infographicTypes/thumbs/stacked_bar_chart.jpg" alt="">
+    <!-- <img class="text-center" width="180px" height="180px" src="https://domo-support.domo.com/servlet/rtaImage?eid=ka05w00000123pE&feoid=00N5w00000Ri7BU&refid=0EM5w000005vPF0" alt=""> -->
+    <!-- <p>Total Work(NGN) <br> {{client.annualWorkBudget.totalWork}} </p>
     <span><i class="far fa-circle text-coral"></i>Total Spent</span>
     <p>Total Spent(NGN) <br> {{client.annualWorkBudget.totalSpent}} </p>
-    <p>Balance(NGN) <br> {{client.annualWorkBudget.balance}} </p>
+    <p>Balance(NGN) <br> {{client.annualWorkBudget.balance}} </p> -->
+    <ul class="text-success text-deco-1 text-medium ">
+      <li>Visualise total sales</li><br>
+      <li>Develop sales target</li><br>
+      <li>Analyze periodic sales</li><br>
+      <li>Smartly view product profitability</li><br>
+    </ul>
   </div>
 </div>
   <div class="clear"></div>

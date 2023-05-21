@@ -15,6 +15,7 @@ import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AuthService } from './services/auth.service';
+import { DefaultComponent } from './components/default/default.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { AuthService } from './services/auth.service';
     LoginComponent,
     DashboardComponent,
     NotFoundComponent,
+    DefaultComponent,
 
   ],
   imports: [

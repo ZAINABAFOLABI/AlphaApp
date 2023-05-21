@@ -15,3 +15,10 @@
 .text-cobalt{
   color: #3d59ab;
 }
+
+.round-padding{
+  padding:  8px 15px 15px 15px;
+  background: #3d59ab;
+  border-radius: 60%;
+}
+
