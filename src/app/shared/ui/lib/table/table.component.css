@@ -1,0 +1,135 @@
+h3{
+  color:#1e41a3;
+  font-size:  large;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom:mb-2;
+}
+
+.font-primary-500{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.w-full{
+  width: 96px;
+}
+
+.h-full{
+  height: 96px;
+}
+
+.text-sm{
+  font-size: small;
+}
+
+.text-lg{
+  font-size: large;
+}
+
+.text-xs{
+  font-size: x-small;
+}
+
+.text-gray-500{
+  color: #A9A9A9;
+}
+
+.text-gray-900{
+  color: 	#71797E;
+}
+
+.subheading{
+  font-size: small;
+  color: #A9A9A9;
+}
+
+.mb-2{
+  margin-bottom: 20px;
+}
+
+.px-4{
+  padding: 0px 40px 0px;
+}
+
+
+::ng-deep .datatable-row-wrapper:nth-child(odd){
+  background: 	#E5E4E2;
+}
+
+::ng-deep .datatable-row-wrapper:nth-child(even){
+ background-color: white;
+}
+
+::ng-deep .datatable-header, ::ng-deep .datatable-row-wrapper {
+  padding: 0px 40px 0px;
+}
+
+::ng-deep .datatable-header{
+  color:#A9A9A9;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-small;
+}
+.flex {
+  display: flex;
+}
+.justify-center{
+  justify-content: center;
+}
+.flex-col{
+  flex-direction: column;
+}
+.bg-gray-400{
+  background: 	#E5E4E2;
+}
+
+.bg-white{
+  background-color: white;
+}
+
+.font-primary-400 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.text-gray-500{
+  color:#A9A9A9;
+}
+
+.text-base{
+  font-size: 16px;
+  line-height: 24px;
+}
+
+
+
+::ng-deep .datatable-row-wrapper{
+  padding: 40px 0px 40px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color:#A9A9A9;
+  font-size: x-small;
+}
+
+::ng-deep .datatable-body-cell-label{
+
+  height: 96px;
+  justify-content: center;
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+}
+
+::ng-deep .cell-header{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: 	#71797E;
+}
+
+::ng-deep .cell-sub{
+  font-size: 12px;
+  line-height: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color:#A9A9A9;
+}
+
+::ng-deep .datatable-scroll{
+  width: 96px;
+}

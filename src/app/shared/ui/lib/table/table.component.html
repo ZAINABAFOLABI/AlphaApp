@@ -1,0 +1,42 @@
+<section class="card relative">
+  <div *ngIf="!hideTableHeader" class="flex flex-col items-center justify-between">
+    <div class="self-baseline">
+      <h3>{{header}}</h3>
+      <div class="subheading">{{subheader}}</div>
+    </div>
+    <div class="mr-4">
+      <ng-content select="[filter]"></ng-content>
+    </div>
+  </div>
+  <div class="lg:w-[calc(100vw-400px)] w-screen pt-2 border-t -mx-4 overflow-x-auto"
+       [class.mt-6]="!hideTableHeader" ngClass="containerClass">
+       <ng-container *ngIf="loading">
+        <div class="w-full">
+          <div *ngFor="let _ of [].constructor(9)" class="grid gap-6 w-full">
+            <div class="flex gap-6 items-center w-full pl-4 pr-8 py-4">
+
+            </div>
+          </div>
+        </div>
+      </ng-container>
+       <ng-container *ngIf="!loading">
+        <div class="w-min lg:w-auto max-h-[600px] overflow-y-auto" *ngIf="data.length > 0; else placeholder">
+          <ng-content select="table,ngx-datatable"></ng-content>
+        </div>
+        <ng-template #placeholder>
+          <div class="text-center w-full">
+            <img class="mx-auto mt-4" width="1400px" src="https://www.elegantthemes.com/blog/wp-content/uploads/2022/01/lazy-loading.png" alt="">
+            <div class="font-primary-500 text-sm mt-6 text-gray-900">{{noDataTitle}}</div>
+            <div class="text-xs font-primary-400 text-gray-500">{{noDataSubtitle}}</div>
+          </div>
+        </ng-template>
+      </ng-container>
+  </div>
+  <div>
+    <ng-container *ngIf="data">
+      <div class="subheading py-4" *ngIf="!loading && (data.length > 0)">
+        <ng-content select="[table-footer]"></ng-content>
+      </div>
+    </ng-container>
+  </div>
+</section>
