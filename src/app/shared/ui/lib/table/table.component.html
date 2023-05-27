@@ -1,5 +1,5 @@
 <section class="card relative">
-  <div *ngIf="!hideTableHeader" class="flex flex-col items-center justify-between">
+  <div *ngIf="!hideTableHeader" class="flex flex-col items-center justify-between card-body">
     <div class="self-baseline">
       <h3>{{header}}</h3>
       <div class="subheading">{{subheader}}</div>
@@ -8,7 +8,7 @@
       <ng-content select="[filter]"></ng-content>
     </div>
   </div>
-  <div class="lg:w-[calc(100vw-400px)] w-screen pt-2 border-t -mx-4 overflow-x-auto"
+  <div class="lg:w-[calc(100vw-400px)] w-screen pt-2 border-t -mx-4 overflow-x-auto card-body"
        [class.mt-6]="!hideTableHeader" ngClass="containerClass">
        <ng-container *ngIf="loading">
         <div class="w-full">
@@ -20,12 +20,13 @@
         </div>
       </ng-container>
        <ng-container *ngIf="!loading">
-        <div class="w-min lg:w-auto max-h-[600px] overflow-y-auto" *ngIf="data.length > 0; else placeholder">
+        <div class="w-min lg:w-auto max-h-[600px] overflow-y-auto card-body" *ngIf="data.length > 0; else placeholder ">
           <ng-content select="table,ngx-datatable"></ng-content>
         </div>
         <ng-template #placeholder>
           <div class="text-center w-full">
-            <img class="mx-auto mt-4" width="1400px" src="https://www.elegantthemes.com/blog/wp-content/uploads/2022/01/lazy-loading.png" alt="">
+            <!-- <h3 class="text-gray-900">No data Found</h3> -->
+            <!-- <img class="mx-auto mt-4" width="1400px" src="https://i.pinimg.com/736x/52/4c/6c/524c6c3d7bd258cd165729ba9b28a9a2.jpg" alt=""> -->
             <div class="font-primary-500 text-sm mt-6 text-gray-900">{{noDataTitle}}</div>
             <div class="text-xs font-primary-400 text-gray-500">{{noDataSubtitle}}</div>
           </div>

@@ -1,6 +1,79 @@
-<div class="mb-16 -mx-4">
-  <alpha-table>
-    <h3>sales budget table</h3>
+<div class="mb-16 -mx-n4">
+  <alpha-table [loading]=" true" mainClass="" class="w-full" containerClass=""
+   noDataTitle="No sales records found" noDataSubtitle="You currently have no sales set"
+  subheader="All your actual sales and budget" [sharpEdges]="true" header="Sales" >
+  <ngx-datatable [rows]="data"
+  [columns]="columns"
+  [count]="0"
+  [footerHeight]="0"
+  [rowHeight]="'auto'"
+  [columnMode]="ColumnMode.force"
+  [limit]="100">
+
+  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Number"
+  cellClass="text-gray-900">
+  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+    <span class="font-primary-500">{{row.number}}</span>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Product Category"
+  cellClass="text-gray-900">
+  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+    <span class="font-primary-500">Shoes</span>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Sales Budget"
+  cellClass="text-gray-900">
+  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+    <span class="font-primary-500">1500</span>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column class="d-flex justify-content-between"  [minWidth]="120" [maxWidth]="120"  name="Actual Sales"
+  cellClass="text-gray-900">
+  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+    <span class="font-primary-500">100</span>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Variance"
+  cellClass="text-gray-900">
+  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+    <span class="font-primary-500">100</span>
+  </ng-template>
+   </ngx-datatable-column>
+  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Period"
+  cellClass="text-gray-900">
+  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+    <span class="font-primary-500">January 2023</span>
+  </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name=""
+  cellClass="text-gray-900">
+  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+    <div class="justify-end">
+      <button class="btn btn-primary">View</button>
+    </div>
+  </ng-template>
+  </ngx-datatable-column>
+
+  </ngx-datatable>
+
+  <div table-footer *ngIf="  ">
+    <div class="flex static justify-between w-full py-2">
+      <button>
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <span>footer here</span>
+      <button>
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+
 
   </alpha-table>
 </div>

@@ -28,6 +28,7 @@ import { DonutChartComponent } from './shared/ui/lib/donut-chart/donut-chart.com
 import { BarChartComponent } from './shared/ui/lib/bar-chart/bar-chart.component';
 import { LineChartComponent } from './shared/ui/lib/line-chart/line-chart.component';
 import { TableComponent } from './shared/ui/lib/table/table.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
@@ -50,12 +51,15 @@ import { TableComponent } from './shared/ui/lib/table/table.component';
     DonutChartComponent,
     BarChartComponent,
     LineChartComponent,
-    TableComponent
+    TableComponent,
+
+
 
   ],
   imports: [
     BrowserModule,
     CommonModule,
+    NgxDatatableModule,
     NgChartsModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
