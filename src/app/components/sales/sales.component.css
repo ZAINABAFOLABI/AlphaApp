@@ -1,3 +1,45 @@
 .w-full{
   max-width: max-content;
 }
+
+.chart-section{
+  height: 400px;
+
+}
+
+.alpha-bg{
+  background: rgb(228, 239, 241);
+}
+
+.alpha-bg2{
+  background: rgb(235, 241, 245);
+}
+
+
+.box1{
+  width: 30%;
+  float: left;
+  background-color: antiquewhite;
+}
+
+.box2{
+  width: 30%;
+  float: right;
+  background-color: aliceblue;
+}
+
+.box3{
+  width: 30%;
+  float: right;
+  background-color: azure;
+}
+
+.section-box{
+  width: 33.10%;
+  height: 400px;
+  float: left;
+  padding: 50px;
+  text-align: center;
+
+}
+

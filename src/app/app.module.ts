@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http'
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -29,6 +30,15 @@ import { BarChartComponent } from './shared/ui/lib/bar-chart/bar-chart.component
 import { LineChartComponent } from './shared/ui/lib/line-chart/line-chart.component';
 import { TableComponent } from './shared/ui/lib/table/table.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+// import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SalesService } from './services/sales.service';
+
 
 
 
@@ -55,12 +65,20 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
+
   ],
   imports: [
+    // NgModule,
     BrowserModule,
+    HttpClientModule,
     CommonModule,
     NgxDatatableModule,
     NgChartsModule,
+    // MatPaginatorModule,
+    // MatFormFieldModule,
+    MatTableModule,
+    MatSortModule,
+    MatInputModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
@@ -68,7 +86,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage())
   ],
-  providers: [AuthService],
+  providers: [AuthService,SalesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
