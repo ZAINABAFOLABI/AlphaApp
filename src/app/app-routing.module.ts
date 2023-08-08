@@ -12,6 +12,7 @@ import { VendorsComponent } from './components/vendors/vendors.component';
 import { LegalComponent } from './components/legal/legal.component';
 import { MarketingComponent } from './components/marketing/marketing.component';
 import { UtilitiesComponent } from './components/utilities/utilities.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes:Routes=[
   {path:'dashboard',component:DashboardComponent},
@@ -24,6 +25,7 @@ const routes:Routes=[
   {path:'vendors', component:VendorsComponent},
   {path:'legal', component:LegalComponent},
   {path:'marketing', component:MarketingComponent},
+  {path:'userSettings', component:SettingsComponent},
   {path:'**',component:NotFoundComponent},
 
 

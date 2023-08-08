@@ -11,6 +11,8 @@ import { SalesService } from 'src/app/services/sales.service';
   // providers: [SalesService]
 })
 export class SalesComponent implements OnInit {
+  pageTitle="Sales Analytics";
+  subHeading="All your sales budget performance";
 
 
   // columns = [

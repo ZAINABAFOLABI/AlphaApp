@@ -3,16 +3,43 @@
 }
 
 .chart-section{
-  height: 400px;
+  padding-top: 50px;
+  height: 480px;
+  width: 1370px;
 
+}
+
+.pageTitle{
+  font-size: large;
+  font-family: cursive;
+  font-weight: 600;
+  color: #3d59ab
+}
+
+.subheader{
+  font-family: 'Righteous', cursive;
+  font-size: large;
+}
+
+.text-cobalt{
+  color: #3d59ab;
+}
+
+.text-deco-sub{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .alpha-bg{
   background: rgb(228, 239, 241);
+  width: 920px;
 }
 
 .alpha-bg2{
   background: rgb(235, 241, 245);
+  width: 450px;
+  height:450px;
+  /* border: 2px white solid; */
+  padding: 15px;
 }
 
 
@@ -35,7 +62,7 @@
 }
 
 .section-box{
-  width: 33.10%;
+  /* width: 33.10%; */
   height: 400px;
   float: left;
   padding: 50px;

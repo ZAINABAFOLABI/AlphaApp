@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CashFlowComponent implements OnInit {
 
+  pageTitle="Cash-flow Analytics";
   constructor() { }
 
   ngOnInit(): void {

@@ -32,6 +32,17 @@ text-decoration: none;
   background: rgb(44, 44, 139);
 }
 
+.font-dark{
+  font-weight: 900;
+  color: black;
+  font-size: 15px;
+}
+
+.line-height{
+  line-height: 30px;
+  font-size: 20px;
+}
+
 .pl-1{
   padding-left: 1.2rem;
 }

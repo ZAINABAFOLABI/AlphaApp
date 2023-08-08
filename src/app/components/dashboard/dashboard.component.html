@@ -12,6 +12,12 @@
         </a>
       </li>
       <li class="pl-1 pt-3">
+        <a routerLink="/sales">
+          <span class="icon pr-2 text-primary"><i class="fas fa-money-check-alt"></i></span>
+          <span class="item text-dark">Sales</span>
+        </a>
+      </li>
+      <li class="pl-1 pt-3">
         <a routerLink="/cash-flow">
           <span class="icon pr-2 text-primary"><i class="fas fa-hand-holding-usd"></i></span>
           <span class="item text-dark">Income & Expenses</span>
@@ -41,14 +47,9 @@
           <span class="item text-dark">Legal</span>
         </a>
       </li>
-      <li class="pl-1 pt-3">
-        <a routerLink="/sales">
-          <span class="icon pr-2 text-primary"><i class="fas fa-money-check-alt"></i></span>
-          <span class="item text-dark">Sales</span>
-        </a>
-      </li>
+
       <li class="pl-1 pt-10">
-        <a routerLink="/default">
+        <a routerLink="/userSettings">
           <span class="icon pr-2 text-primary "><i class="fas fa-user-cog"></i></span>
           <span class="item text-dark">Manage Users</span>
         </a>
@@ -66,7 +67,7 @@
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
 
     </button>
-    <ul class="dropdown-menu pl-1 bg-cobalt width-md height-md" aria-labelledby="dropdownMenu2">
+    <ul class="dropdown-menu pl-1 bg-cobalt width-md height-md line-height" aria-labelledby="dropdownMenu2">
      <li class="text-primary2 pt-3" >WELCOME BACK! {{client.firstName}} {{client.lastName}}.</li>
      <li class=" text-white">See overview of analytics and reporting metrics and a lot more interesting stuffs you can do here.</li>
      <button class="btn-light text-cobalt rounded-3 btn-lg ">Take A Tour</button>
@@ -96,14 +97,15 @@
 <span>
  <!-- <p>Dashboard</p> -->
  <span class="text-start text-cobalt">Dashboard</span>
-<p class="text-end pr-2">  <i class="fas fa-wrench fa-2x pr-1 text-cobalt"></i> <span class="text-cobalt pr-2">Customize Dashboard </span>  <span class="text-gray pr-1">|</span>   Mon,Jun 22, 2020</p>
+<p class="text-end font-dark pr-2">  <i class="fas fa-wrench fa-2x pr-1 text-cobalt"></i> <span class="text-cobalt pr-2">Customize Dashboard </span>
+<span class="font-dark pr-1">|</span>   {{today}}</p>
 </span>
 
 
 <div class="box">
   <div class="box-2 mr-50">
 
-   <ul class="list-linline pl-1 bg-cobalt width-md height-md list-inline rounded-3 ">
+   <ul class="list-linline pl-1 bg-cobalt width-md height-md list-inline rounded-3 line-height">
     <li class="text-primary2 list-unstyled pt-3" >WELCOME BACK! {{client.firstName}} {{client.lastName}}.</li>
     <li class=" text-white list-unstyled">See overview of analytics and reporting metrics and a lot more interesting stuffs you can do here.</li>
     <button class="btn-light text-cobalt rounded-3 btn-lg ">Take A Tour</button>
@@ -112,7 +114,7 @@
 
 
   <div class="box-2">
-    <ul class="list-inline pl-1 width-md height-md bg-cobalt-light text-start rounded-3 pt-3">
+    <ul class="list-inline line-height pl-1 width-md height-md bg-cobalt-light text-start rounded-3 pt-3">
   <li class=" pl-1 text-cobalt list-inline-item ">OPTIMIZED APPLICATION PROCESSING</li>
   <li class=" pl-1 list-inline-item ">We've optimized the system to process your application as fast as possible.
     <strong>

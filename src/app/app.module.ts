@@ -35,9 +35,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { DatePipe } from '@angular/common';
 // import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SalesService } from './services/sales.service';
+import { SettingsComponent } from './components/settings/settings.component';
 
 
 
@@ -62,6 +64,7 @@ import { SalesService } from './services/sales.service';
     BarChartComponent,
     LineChartComponent,
     TableComponent,
+    SettingsComponent,
 
 
 
@@ -86,7 +89,7 @@ import { SalesService } from './services/sales.service';
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage())
   ],
-  providers: [AuthService,SalesService],
+providers: [AuthService,SalesService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, ChartType,ChartOptions,ChartDataset } from 'chart.js';
+import { DatePipe } from '@angular/common';
 
 
 import { User } from 'src/app/model/user';
@@ -8,22 +9,27 @@ import { User } from 'src/app/model/user';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent 
+export class DashboardComponent
 implements OnInit {
+  today = new Date();
+
+
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
-  
+
   // public pieChartLabels: Label[] = ['PHP', '.Net', 'Java'];
   // public pieChartData: SingleDataSet = [50, 30, 20];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
-  
+
 user="Chidimma Nwanya";
 client:User;
-  constructor() {
+  constructor(public datePipe:DatePipe) {
+    let currentDate = this.datePipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
+    console.log(currentDate);
     // monkeyPatchChartJsTooltip();
     // monkeyPatchChartJsLegend();
     this.client={
@@ -43,12 +49,13 @@ client:User;
         cardsInUse:342383,
         totalCards:392383,
         inactive:50000
-    
+
       }
     }
    }
 
   ngOnInit(): void {
+
   }
 
 }

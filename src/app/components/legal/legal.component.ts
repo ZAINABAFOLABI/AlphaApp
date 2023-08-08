@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./legal.component.css']
 })
 export class LegalComponent implements OnInit {
-
+  pageTitle="Legal Analytics";
   constructor() { }
 
   ngOnInit(): void {

@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vendors.component.css']
 })
 export class VendorsComponent implements OnInit {
-
+  pageTitle="Vendors Analytics";
   constructor() { }
 
   ngOnInit(): void {

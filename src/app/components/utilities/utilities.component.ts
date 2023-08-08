@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./utilities.component.css']
 })
 export class UtilitiesComponent implements OnInit {
+  pageTitle="Utilities Analytics";
 
   constructor() { }
 
