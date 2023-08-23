@@ -45,3 +45,7 @@
 .bg-full{
   height: 60vw;
 }
+
+div{
+  justify-content: left;
+}

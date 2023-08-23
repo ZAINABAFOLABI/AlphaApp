@@ -40,6 +40,9 @@ import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SalesService } from './services/sales.service';
 import { SettingsComponent } from './components/settings/settings.component';
+import { FormsModule } from '@angular/forms';
+import { UserFeedbackComponent } from './components/user-feedback/user-feedback.component';
+import { SalesRecordModalComponent } from './components/sales-record-modal/sales-record-modal.component';
 
 
 
@@ -65,6 +68,8 @@ import { SettingsComponent } from './components/settings/settings.component';
     LineChartComponent,
     TableComponent,
     SettingsComponent,
+    UserFeedbackComponent,
+    SalesRecordModalComponent,
 
 
 
@@ -73,6 +78,7 @@ import { SettingsComponent } from './components/settings/settings.component';
   imports: [
     // NgModule,
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     CommonModule,
     NgxDatatableModule,

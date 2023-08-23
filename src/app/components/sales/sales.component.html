@@ -1,125 +1,141 @@
 <div class="p-4" >
   <h1 class="pageTitle">{{pageTitle}}</h1>
   <h3 class="subheader text-cobalt">{{subHeading}}</h3>
-
-</div>
-<div class="chart-section">
-  <div class="section-box alpha-bg2">
-    <h3 class="text-cobalt text-deco-sub">Overview</h3>
-
-  </div>
-  <div class="section-box alpha-bg">
-    <h3 class="text-cobalt text-deco-sub">Sales performance</h3>
-
-
-
-  </div>
-
 </div>
 
-<!-- <div>
-  <table mat-table matSort>
-    <ng-container >
-      <th mat-sort-header mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell>This is the ID</td>
-    </ng-container>
-    <ng-container >
-      <th mat-sort-header mat-header-cell *matHeaderCellDef>User ID</th>
-      <td mat-cell>This is the ID</td>
-    </ng-container>
-    <ng-container >
-      <th mat-sort-header mat-header-cell *matHeaderCellDef>Body</th>
-      <td mat-cell>This is the ID</td>
-    </ng-container>
-    <ng-container >
-      <th mat-sort-header mat-header-cell *matHeaderCellDef>Title</th>
-      <td mat-cell>This is the ID</td>
-    </ng-container>
+<div class="container ">
+    <div class="row">
+      <div class="col-4 mb-10">
+        <div class="card mt-5">
 
+          <div class="card-body ">
+            <h5 class="card-title">Sales Budget</h5>
+            <h2 class="card-text">₦999</h2>
+            <p>Actual Sales ₦0</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal" >Set Category</button>
 
-  </table>
-</div> -->
+<!--Product Category Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-cobalt" id="exampleModalLabel">Set product category</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div><h3 class="px-4">Add new product category</h3></div>
+      <div class="modal-body">
+        <form #form ="ngForm" (ngSubmit)="save(form)" >
+          <div class="form-group">
+            <label for="category">Product Category</label>
+            <input name="category" #category="ngModel" ngModel type="text" class="form-control"
+            minlength="3" required>
+          </div>
+          <pre></pre>
 
+          <div class="form-group">
+            <button  class="btn btn-lge btn-primary" type="submit">Save changes</button>
+          </div>
 
+        </form>
+      </div>
 
-
-
-<!-- <div class="mb-16 -mx-n4">
-  <alpha-table [loading]=" true" mainClass="" class="w-full" containerClass=""
-   noDataTitle="No sales records found" noDataSubtitle="You currently have no sales set"
-  subheader="All your actual sales and budget" [sharpEdges]="true" header="Sales" >
-  <ngx-datatable [rows]="data"
-  [columns]="columns"
-  [count]="0"
-  [footerHeight]="0"
-  [rowHeight]="'auto'"
-  [columnMode]="ColumnMode.force"
-  [limit]="100">
-
-  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Number"
-  cellClass="text-gray-900">
-  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-    <span class="font-primary-500">{{row.number}}</span>
-  </ng-template>
-  </ngx-datatable-column>
-
-  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Product Category"
-  cellClass="text-gray-900">
-  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-    <span class="font-primary-500">Shoes</span>
-  </ng-template>
-  </ngx-datatable-column>
-
-  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Sales Budget"
-  cellClass="text-gray-900">
-  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-    <span class="font-primary-500">1500</span>
-  </ng-template>
-  </ngx-datatable-column>
-
-  <ngx-datatable-column class="d-flex justify-content-between"  [minWidth]="120" [maxWidth]="120"  name="Actual Sales"
-  cellClass="text-gray-900">
-  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-    <span class="font-primary-500">100</span>
-  </ng-template>
-  </ngx-datatable-column>
-
-  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Variance"
-  cellClass="text-gray-900">
-  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-    <span class="font-primary-500">100</span>
-  </ng-template>
-   </ngx-datatable-column>
-  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name="Period"
-  cellClass="text-gray-900">
-  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-    <span class="font-primary-500">January 2023</span>
-  </ng-template>
-  </ngx-datatable-column>
-
-  <ngx-datatable-column class="d-flex justify-content-between" [minWidth]="120" [maxWidth]="120"  name=""
-  cellClass="text-gray-900">
-  <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-    <div class="justify-end">
-      <button class="btn btn-primary">View</button>
-    </div>
-  </ng-template>
-  </ngx-datatable-column>
-
-  </ngx-datatable>
-
-  <div table-footer *ngIf="  ">
-    <div class="flex static justify-between w-full py-2">
-      <button>
-        <i class="fas fa-arrow-left"></i>
-      </button>
-      <span>footer here</span>
-      <button>
-        <i class="fas fa-arrow-right"></i>
-      </button>
     </div>
   </div>
 
 
-  </alpha-table>
-</div> -->
+</div>
+
+
+
+
+
+
+
+
+
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" >Record Sales</button>
+              <!-- Sales Record Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 text-cobalt" id="exampleModalLabel">Sales Record</h1>
+
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div><h3 class="px-4">Daily sales record</h3></div>
+      <div class="modal-body">
+        <form #salesForm ="ngForm" (ngSubmit)="recordSales(salesForm)" >
+          {{currentDate}}
+          <pre></pre>
+
+          <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">Product Category</label>
+            <select class="form-select" id="inputGroupSelect01" required>
+              <option selected>choose product category</option>
+              <option value="1">Clothings</option>
+              <option value="2">Footwear</option>
+              <option value="3">Accessories</option>
+            </select>
+          </div>
+          <pre></pre>
+
+          <div class="form-group">
+            <label for="product">Product</label>
+            <input name="product" #product="ngModel" ngModel type="text" class="form-control"
+            minlength="2" required>
+          </div>
+          <pre></pre>
+
+          <div class="form-group">
+            <label for="units">Units</label>
+            <input name="units" #units="ngModel" ngModel type="text" class="form-control"
+            minlength="1" required>
+          </div>
+          <pre></pre>
+
+
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input name="amount" #amount="ngModel" ngModel type="text" class="form-control"
+            minlength="2" required>
+          </div>
+          <pre></pre>
+
+          <div class="form-group">
+            <label for="total">Total</label>
+            <input name="total" #total="ngModel" ngModel type="text" class="form-control"
+            minlength="1" required>
+          </div>
+          <pre></pre>
+
+          <div class="form-group">
+            <button  class="btn btn-lge btn-primary" type="submit">Save changes</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div>
+
+    </div>
+
+
+
+

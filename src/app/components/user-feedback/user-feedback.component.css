@@ -1,0 +1,36 @@
+div{
+  text-align: center;
+}
+
+/* label{
+  text-align: left;
+} */
+
+.alert-danger{
+  background-color: red;
+}
+
+.alert{
+  color: white;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.text-cobalt{
+  color: #3d59ab;
+}
+
+.text-left{
+  text-align: left;
+}
+
+
+.bg-full{
+  height: 70vw;
+}
+
+.btn-lge{
+  width: 250px;
+  height: 50px;
+  background:rgb(27, 27, 105) ;
+}

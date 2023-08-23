@@ -9,6 +9,19 @@
 
 }
 
+table{
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
 .pageTitle{
   font-size: large;
   font-family: cursive;
@@ -32,14 +45,19 @@
 .alpha-bg{
   background: rgb(228, 239, 241);
   width: 920px;
+  height: 500px;
 }
 
 .alpha-bg2{
   background: rgb(235, 241, 245);
   width: 450px;
-  height:450px;
+  height:500px;
   /* border: 2px white solid; */
   padding: 15px;
+}
+
+.mb-10{
+  margin-bottom: 100px;
 }
 
 

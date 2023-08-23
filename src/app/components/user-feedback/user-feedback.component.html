@@ -1,0 +1,35 @@
+<div class= " text-lg mt-4"><h2 class="text-cobalt"> User Feedback</h2></div>
+
+
+<div class="row pt-4 bg-full">
+  <div style="height: 500px;" class="col-md-6 mx-auto pl-30 bg-light ">
+
+  <form #feedback="ngForm" (ngSubmit)="submit(feedback)" >
+    <div class="form-group pt-4">
+    <label class="text-left"  for="feedbackCategory">Category</label><br>
+    <select #feedbackCategory = "ngModel" class="form-select form-select-lg mb-3" name="feedbackCategory"
+    ngModel required aria-label="Large select example">
+      <option selected>Select Issue category </option>
+      <option value="Slow application">Slow application</option>
+      <option value="Inaccurate balance">Inaccurate balance</option>
+      <option value="Something else">Something else</option>
+    </select>
+    <div *ngIf = "feedbackCategory.invalid && feedbackCategory.touched" class="alert alert-danger"> Invalid category</div>
+  </div>
+    <pre></pre>
+    <div class="form-group">
+      <label  for="description">Description</label><br>
+      <input style="height: 100px;" #description = "ngModel" class="form-control" name="description" type="text" minlength="20" ngModel required>
+      <div [hidden]=" description.valid || description.pristine" class="alert alert-danger">Description is too short</div>
+    </div>
+    <pre></pre>
+    <div class="form-group">
+     <button [disabled]="feedback.invalid" class="btn-lge text-light" type="submit">Send</button>
+     <div [hidden]="feedback.valid || feedback.pristine" class="alert alert-danger"> Kindly complete the form before submitting.</div>
+    </div>
+    <pre></pre>
+  </form>
+</div>
+
+</div>
+

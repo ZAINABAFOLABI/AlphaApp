@@ -13,6 +13,8 @@ import { LegalComponent } from './components/legal/legal.component';
 import { MarketingComponent } from './components/marketing/marketing.component';
 import { UtilitiesComponent } from './components/utilities/utilities.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { UserFeedbackComponent } from './components/user-feedback/user-feedback.component';
+import { SalesRecordModalComponent } from './components/sales-record-modal/sales-record-modal.component';
 
 const routes:Routes=[
   {path:'dashboard',component:DashboardComponent},
@@ -26,6 +28,8 @@ const routes:Routes=[
   {path:'legal', component:LegalComponent},
   {path:'marketing', component:MarketingComponent},
   {path:'userSettings', component:SettingsComponent},
+  {path:'feedback', component:UserFeedbackComponent},
+  {path:'salesRecord', component:SalesRecordModalComponent},
   {path:'**',component:NotFoundComponent},
 
 
