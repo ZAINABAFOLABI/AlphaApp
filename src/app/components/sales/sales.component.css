@@ -38,6 +38,10 @@ td, th {
   color: #3d59ab;
 }
 
+table-container{
+  width: 1000px;
+}
+
 .text-deco-sub{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
