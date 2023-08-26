@@ -68,9 +68,14 @@
       </div>
       <div><h3 class="px-4">Daily sales record</h3></div>
       <div class="modal-body">
-        <form #salesForm ="ngForm" (ngSubmit)="recordSales(salesForm)" >
-          {{currentDate}}
+        <form [formGroup]="grandSalesForm" >
+          <!-- {{currentDate}} -->
           <pre></pre>
+          <div class="flex items-center gap-4">
+            <span  class="fs-5 px-1"> Date </span>
+            <input style="width: 180px; height: 40px;" class="rounded text-primary fs-5 p-2" [disabled]="true"
+                        [placeholder]="(currentDate | date : 'dd MMM yyyy')!"/>
+          </div>
 
           <section class="relative">
 
@@ -191,8 +196,8 @@
             </div>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-              <button class=" btn text-secondary px-3">Discard</button>
-              <button [disabled]="!(salesRecordForm.controls['itemName'].value && (this.items.length > 0) && salesRecordForm.controls['quantity'].value && salesRecordForm.controls['itemCategory'].value)" class="btn btn-primary px-4">Record</button>
+              <button   type="reset" class=" btn text-secondary px-3">Discard</button>
+              <button (click)="recordSales()" [disabled]="!(  (this.items.length > 0) )" class="btn btn-primary px-4">Record</button>
             </div>
 
           </section>

@@ -73,8 +73,10 @@ export class SalesComponent implements OnInit {
   subHeading="All your sales budget performance";
   items: ItemModel[] = [];
   addItem = false;
+  grandSalesForm: FormGroup;
   salesRecordForm: FormGroup;
   createdDate?: string;
+  recordingSales = false;
   itemsToDelete: number[] = [];
   grandTotal = 0;
   chart: any = [];
@@ -95,9 +97,36 @@ export class SalesComponent implements OnInit {
   // @ViewChild(MatPaginator) paginator!: MatPaginator;
   // @ViewChild(MatSort) sort!: MatSort;
 
-  recordSales(salesForm:any){
-    console.log("sales record", salesForm)
+
+
+  recordSales() {
+    this.recordingSales = true;
+    this.prepareFormForSubmit();
+    this.grandSalesForm.value;
+    // this.creatInvoice.emit(this.grandSalesForm
+    //   .value).subscribe(() => {
+    //   this.creatingInvoice = false;
+    // });
+    console.log("Items sold",this.items, this.grandSalesForm.value);
   }
+
+  reset(){
+    this.grandSalesForm.reset();
+    this.salesRecordForm.reset();
+
+  }
+
+  prepareFormForSubmit() {
+    this.grandSalesForm.patchValue({
+      items: [],
+      amountTotal: this.grandTotal,
+      salesDate:this.datePipe.transform(this.createdDate, 'yyyy-MM-dd')
+    });
+    this.items.forEach((i) => {
+      (this.grandSalesForm.controls['items'].value as Array<any>).push(i);
+    })
+  }
+
 
   // submit(productCategoryForm:any){
   //   console.log("Category has been set", productCategoryForm)
@@ -137,6 +166,12 @@ export class SalesComponent implements OnInit {
       total: [''],
       unitPrice: ['']
     });
+
+    this.grandSalesForm = this.fb.group({
+      salesDate: [''],
+      amountTotal: [''],
+      items: this.fb.array([])
+    })
 
     this.createdDate = (new Date()).toDateString();
 

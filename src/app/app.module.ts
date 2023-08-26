@@ -30,6 +30,7 @@ import { BarChartComponent } from './shared/ui/lib/bar-chart/bar-chart.component
 import { LineChartComponent } from './shared/ui/lib/line-chart/line-chart.component';
 import { TableComponent } from './shared/ui/lib/table/table.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgxsModule } from '@ngxs/store';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -85,6 +86,7 @@ import { SalesRecordModalComponent } from './components/sales-record-modal/sales
     CommonModule,
     NgxDatatableModule,
     NgChartsModule,
+    NgxsModule,
     // MatPaginatorModule,
     // MatFormFieldModule,
     MatTableModule,
