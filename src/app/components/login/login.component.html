@@ -1,99 +1,51 @@
-<!-- <div class="row bg-light pt-4 bg-full">
-  <div class="col-md-6 mx-auto pl-30">
-    <h3 class="pb-4 pt-8 text-primary">
-      <i class="fab fa-stripe-s round-padding text-light"></i>
-      <span class="text-cobal"> Alpha</span>
-    </h3>
-    <br />
-    <h1 class="text-dark">
-      <strong
-        >Login to <br />
-        your account</strong
-      >
-    </h1>
-    <p class="text-dark pt-3">Welcome back ! Please login to your account</p>
-    <form action="">
-    <div class="form-group p-3">
-      <label class="p-1" for="email">Email</label>
-      <input class="form-control input-light" name="email" type="email" formControlName="email">
-    </div>
-    <div class="form-group p-3">
-      <label class="p-1" for="email">Password</label>
-      <input class="form-control input-light" name="password" type="password" formControlName="password">
-    </div>
-    <div> <a routerLink="/dashboard"><button class="btn btn-lge text-light" type="submit">LogIn</button></a></div>
-  </form>
 
-  <div class="pt-2"><p>Don't have an account? <span class="text-cobal"> <a routerLink="/register" class="text-decoration-none"> Sign up </a></span> </p> </div>
+<div class="d-flex">
 
-    <div FormGroup="loginForm (ngSubmit)="validateLogin()" >
-    <div class="form-group pt-3">
-      <input
-        class="form-control pt-3 input-light"
-        type="email"
-        name="email"
-        formControlName="email"
-        placeholder="KTS12562892 |"
-      /><br />
-    </div>
+  <div style="width: 50vw; height: 100vh;" class="pt-4 flex-fill bg-light ">
+    <h1 class="text-cobal fs-1 pl-2 "> Alpha</h1>
+    <div class="col-md-6 mx-auto  ">
+      <div class="text-left">  <h2 class="pb-4 pt-8 text-primary">
+        <!-- <i class="fas fa- fa-lg round-padding text-light"></i> -->
+          <span class="text-dark fs-2"> Login</span>
+      </h2></div>
+      <div>Continue to your account</div>
+      <pre></pre>
 
-    <div class="form-group">
-      <input
-        class="form-control pt-3 input-light"
-        type="password"
-        name="password"
-        formControlName="password"
-        placeholder="Enter Password"
-      /><br />
-    </div>
+    <form #login="ngForm" (ngSubmit)="auth(login)" >
+      <div class="form-group p-1 font-dark-300 fs-5">
+        <label class="p-1" for="companyEmail">Email</label>
+        <input type="email" #companyEmail="ngModel" name="companyEmail" class="form-control" placeholder="Enter your email" required ngModel >
+      </div>
+      <pre></pre>
 
-    <a routerLink="/dashboard">
-      <input
-        class="btn btn-lge text-light"
-        type="submit"
-        value="LOG IN"
-        (click)="validateLogin()"
-      />
-    </a>
-    <br />
-    <a routerLink="">
-      <input
-        class="btn btn-light btn-block text-info"
-        type="submit"
-        value="Forgot Password?"
-    /></a>
-   </div> -->
-  <!-- </div> -->
-<!-- </div>  -->
+      <div class="form-group p-1 fs-5">
+        <label  class="p-1" for="password">Password</label>
+        <input type="password" #password="ngModel" name="password" class="form-control" required ngModel >
+      </div>
+      <pre></pre>
 
-<div class="row justify-left  pt-4 bg-full">
-  <div class="col-md-6 mx-auto pl-30 bg-light ">
-    <div class="text-left">  <h3 class="pb-4 pt-8 text-primary">
-      <!-- <i class="fas fa- fa-lg round-padding text-light"></i> -->
-        <span class="text-cobal"> Alpha</span>
-    </h3></div>
-    <div class="pt-2"><p>Don't have an account? <span class="text-cobal"> <a routerLink="/register" class="text-decoration-none"> Register </a></span> </p> </div>
-  <form action="" >
-    <div class="form-group p-1">
-      <label for="companyEmail">Email</label>
-      <input type="email" name="companyEmail" class="form-control" placeholder="admin@ricoplan.africa" >
-    </div>
+      <div class="pt-4 form-group">
+        <a routerLink="/dashboard">
+          <button [disabled]="login.invalid" class="btn btn-lge btn-primary text-light" type="submit"> Log In </button>
+        </a>
+        <div [hidden]="login.valid || login.pristine" class="alert alert-danger"> Invalid login credentials.</div>
+      </div>
+
+
+    </form> <br>
+
+    <div class="pt-2"><p>Don't have an account? <span class="text-cobal"> <a routerLink="/register" class="text-decoration-none"> Sign up </a></span> </p> </div>
 
 
 
-    <div class="form-group p-1">
-      <label for="passwordConfirm">Password</label>
-      <input type="password" name="passwordConfirm" class="form-control" >
-    </div>
+  </div>
+  </div>
 
-    <div class="pt-4">
-      <a routerLink="/dashboard"><button class="btn btn-lge text-light" type="submit"> Log In </button></a>
-    </div>
-
-
-  </form> <br>
+  <div class="flex-fill">
+    <img style="width: 50vw; height: 100vh;" src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/06/07/0c6e1bc5a70aa7cc420d905d5024caae/header-fintech-16x9.jpg" alt="Fintech">
+  </div>
 
 
 
 </div>
-</div>
+

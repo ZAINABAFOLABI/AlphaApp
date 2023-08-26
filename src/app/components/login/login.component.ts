@@ -18,6 +18,9 @@ loginFormLoading: boolean = false;
 email:string='';
 password:string='';
 
+auth(login:any){
+  console.log("Loginform", login)
+}
   constructor(
     private authService:AuthService,
     private router:Router,

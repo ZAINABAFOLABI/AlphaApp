@@ -57,11 +57,11 @@
 
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" >Record Sales</button>
               <!-- Sales Record Modal -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div  class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5 text-cobalt" id="exampleModalLabel">Sales Record</h1>
+        <h1 class="modal-title fs-4 text-primary" id="exampleModalLabel">Sales Record</h1>
 
 
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -72,49 +72,131 @@
           {{currentDate}}
           <pre></pre>
 
-          <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Product Category</label>
-            <select class="form-select" id="inputGroupSelect01" required>
-              <option selected>choose product category</option>
-              <option value="1">Clothings</option>
-              <option value="2">Footwear</option>
-              <option value="3">Accessories</option>
-            </select>
-          </div>
-          <pre></pre>
+          <section class="relative">
 
-          <div class="form-group">
-            <label for="product">Product</label>
-            <input name="product" #product="ngModel" ngModel type="text" class="form-control"
-            minlength="2" required>
-          </div>
-          <pre></pre>
+            <div class="text-right w-full ">
+              <button [disabled]="!itemsToDelete.length" (click)="removeItems()" class="rounded-lg btn btn-light  mb-4 items-center " [ngClass]="!itemsToDelete.length ? 'text-gray-600' : 'text-danger'">
+                <i class="fa fa-trash px-2 text-secondary " ></i>
+                <span class="text-secondary justify-end">Remove</span></button>
+            </div>
 
-          <div class="form-group">
-            <label for="units">Units</label>
-            <input name="units" #units="ngModel" ngModel type="text" class="form-control"
-            minlength="1" required>
-          </div>
-          <pre></pre>
+            <div class="table-container pb-6">
+              <form [formGroup]="salesRecordForm">
+                <table>
+                  <thead class="bg-white font-dark-300 p-4">
+                  <tr>
+                    <th scope="col">
+                      <div class="flex items-center">
+                        <span>#</span>
+                        <input type="checkbox" (click)="checkItems()" [checked]="allChecked()">
+                      </div>
+                    </th>
+                    <th scope="col">Item Category</th>
+                    <th scope="col">Item Name</th>
+                    <th scope="col">Unit Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                  </tr>
+                  </thead>
+                  <tbody style="height: 60px; margin-top: 25px;">
+                  <ng-container *ngFor="let item of items; let i = index">
+                    <tr>
+                      <td class="font-primary-600 ">
+                        <div class="flex gap-2 items-center">
+                          <span>{{ i + 1 }}</span>
+                          <input type="checkbox" (click)="checkItems(i)" [checked]="itemsToDelete.indexOf(i) > -1">
+                        </div>
+                      </td>
+                      <td class="font-primary-600">
+                        {{ item.itemCategory }}
+                      </td>
+                      <td class="font-primary-600">
+                        {{ item.itemName }}
+                      </td>
+                      <td class="font-primary-400">
+                        {{ item.unitPrice | currency : 'NGN' : 'symbol-narrow' : '1.0-0'}}
+                      </td>
+                      <td class="font-primary-400">
+                        {{ item.quantity }}
+                      </td>
+                      <td class="font-primary-600">
+                        {{ getTotal(item) | currency : 'NGN' : 'symbol-narrow' : '1.0-0' }}
+                      </td>
+                    </tr>
+                  </ng-container>
+                  <tr [formGroup]="salesRecordForm" *ngIf="addItem">
+                    <td class="font-primary-600 ">
+                      {{items.length + 1}}
+                    </td>
+                    <td class="font-primary-400 ">
+                      <select class="form-select" id="inputGroupSelect01" formControlName="itemCategory" required>
+                        <option selected>choose product category</option>
+                        <option value="Clothings">Clothings</option>
+                        <option value="Footwear">Footwear</option>
+                        <option value="Accessories">Accessories</option>
+                      </select>
+                    </td>
+                    <td class="font-primary-400 ">
+                      <input style="width: 160px; height: 40px;" class="rounded" placeholder="Item name" formControlName="itemName" required/>
+                    </td>
+                    <td class="font-primary-400 ">
+                      <input style="width: 120px; height: 40px;" class="rounded" placeholder="0" formControlName="unitPrice" type="number"/>
+                    </td>
+                    <td class="font-primary-400 !py-2 !pl-1">
+                      <div class="border h-full rounded-lg grid grid-cols-[35px,40px,35px] justify-items-center">
+                        <button type="button" [disabled]="salesRecordForm.controls['quantity'].value === 0"
+                                (click)="salesRecordForm.controls['quantity']
+                                            .patchValue(+salesRecordForm.controls['quantity'].value - 1)"
+                                class="flex px-2 items-center justify-center btn">
+                          <i class="fas fa-minus" ></i>
+                        </button>
+                        <input style="width: 160px; height: 40px;" class="rounded" placeholder="0" formControlName="quantity"
 
+                                    type="number"
+                                    />
+                        <button type="button" (click)="salesRecordForm.controls['quantity']
+                                            .patchValue(+salesRecordForm.controls['quantity'].value + 1)"
+                                class="h-full px-2 w-full flex items-center justify-center">
+                          <i class="fas fa-plus" name="bootstrap-plus"></i>
+                        </button>
+                      </div>
+                    </td>
+                    <td class="font-primary-600 !py-2 !pl-1">
+                      <button class="btn btn-primary"
+                        [disabled]="!(salesRecordForm.controls['itemName'].value && salesRecordForm.controls['quantity'].value && salesRecordForm.controls['unitPrice'].value)"
+                        (click)="addNewItem()">Add</button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </form>
+            </div>
 
-          <div class="form-group">
-            <label for="amount">Amount</label>
-            <input name="amount" #amount="ngModel" ngModel type="text" class="form-control"
-            minlength="2" required>
-          </div>
-          <pre></pre>
+            <div class="flex items-center gap-2 mt-4 justify-start">
+              <button class="p-3 btn-primary btn" type="plane">
+            <span class="flex items-center text-sm gap-2">
+              <i class="fas fa-plus px-2" name="bootstrap-plus-circle"></i>
+              <span (click)="toggleAddItemForm()"
+                    class="!text-medium font-primary-500 text-primary-blue-110">{{!addItem ? 'Add Product/Service' : 'Confirm'}}</span>
+            </span>
+              </button>
+            </div>
 
-          <div class="form-group">
-            <label for="total">Total</label>
-            <input name="total" #total="ngModel" ngModel type="text" class="form-control"
-            minlength="1" required>
-          </div>
-          <pre></pre>
+            <div class="d-flex justify-content-end  my-4 mt-4 lg:mt-auto items-center">
+              <div style="width: 300px; height: 80px;" class="p-4 bg-light border text-lg flex items-center  rounded" type="gray">
+                <span class="inline-block flex text-gray-500 p-3 ">Total</span>
+                <span class="text-gray-900 text-xl font-family-verdana text-dark fs-3">
+                  {{grandTotal | currency : 'NGN' : 'symbol-narrow' : '1.0-0'}}</span>
+              </div>
+            </div>
 
-          <div class="form-group">
-            <button  class="btn btn-lge btn-primary" type="submit">Save changes</button>
-          </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <button class=" btn text-secondary px-3">Discard</button>
+              <button [disabled]="!(salesRecordForm.controls['itemName'].value && (this.items.length > 0) && salesRecordForm.controls['quantity'].value && salesRecordForm.controls['itemCategory'].value)" class="btn btn-primary px-4">Record</button>
+            </div>
+
+          </section>
+
 
         </form>
       </div>
@@ -138,106 +220,6 @@
     </div>
 
 
-    <section class="relative">
-
-      <div class="text-right w-full ">
-        <button [disabled]="!itemsToDelete.length" (click)="removeItems()" class="ml-auto transition-all duration-300 mb-4 items-center gap-4 flex" [ngClass]="!itemsToDelete.length ? 'text-gray-401' : 'text-gray-600'">
-          <i class="fa fa-trash text-cobalt " ></i>
-          <span class="text-cobalt justify-end">Remove</span></button>
-      </div>
-
-      <div class="table-container pb-6">
-        <form [formGroup]="salesRecordForm">
-          <table>
-            <thead class="bg-white">
-            <tr>
-              <th scope="col">
-                <div class="flex gap-2 items-center">
-                  <span>#</span>
-                  <input type="checkbox" (click)="checkItems()" [checked]="allChecked()">
-                </div>
-              </th>
-              <th scope="col">Item Name</th>
-              <th scope="col">Unit Price</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Total</th>
-            </tr>
-            </thead>
-            <tbody>
-            <ng-container *ngFor="let item of items; let i = index">
-              <tr>
-                <td class="font-primary-600 w-[60px]">
-                  <div class="flex gap-2 items-center">
-                    <span>{{ i + 1 }}</span>
-                    <input type="checkbox" (click)="checkItems(i)" [checked]="itemsToDelete.indexOf(i) > -1">
-                  </div>
-                </td>
-                <td class="font-primary-600">
-                  {{ item.itemName }}
-                </td>
-                <td class="font-primary-400">
-                  {{ item.unitPrice | currency : 'NGN' : 'symbol-narrow' : '1.0-0'}}
-                </td>
-                <td class="font-primary-400">
-                  {{ item.quantity }}
-                </td>
-                <td class="font-primary-600">
-                  {{ getTotal(item) | currency : 'NGN' : 'symbol-narrow' : '1.0-0' }}
-                </td>
-              </tr>
-            </ng-container>
-            <tr [formGroup]="salesRecordForm" *ngIf="addItem">
-              <td class="font-primary-600 !py-2 w-[60px]">
-                {{items.length + 1}}
-              </td>
-              <td class="font-primary-400 !py-2 !pl-1">
-                <input placeholder="Item name" formControlName="itemName"/>
-              </td>
-              <td class="font-primary-400 !py-2 !pl-1">
-                <input placeholder="0" formControlName="unitPrice" type="number"/>
-              </td>
-              <td class="font-primary-400 !py-2 !pl-1">
-                <div class="border h-full rounded-lg grid grid-cols-[35px,40px,35px] justify-items-center">
-                  <button type="button" [disabled]="salesRecordForm.controls['quantity'].value === 0"
-                          (click)="salesRecordForm.controls['quantity']
-                                      .patchValue(+salesRecordForm.controls['quantity'].value - 1)"
-                          class="flex px-2 w-full items-center justify-center btn">
-                    <i name="bootstrap-dash"></i>
-                  </button>
-                  <input placeholder="0" formControlName="quantity"
-                              inputClass="!p-0 !h-[30px] !overflow-hidden"
-                              nativeInputClass="text-center"
-                              type="number"
-                              />
-                  <button type="button" (click)="salesRecordForm.controls['quantity']
-                                      .patchValue(+salesRecordForm.controls['quantity'].value + 1)"
-                          class="h-full px-2 w-full flex items-center justify-center">
-                    <i class="fas fa-plus" name="bootstrap-plus"></i>
-                  </button>
-                </div>
-              </td>
-              <td class="font-primary-600 !py-2 !pl-1">
-                <button
-                  [disabled]="!(salesRecordForm.controls['itemName'].value && salesRecordForm.controls['quantity'].value && salesRecordForm.controls['unitPrice'].value)"
-                  (click)="addNewItem()">Add</button>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </form>
-      </div>
-
-      <div class="flex items-center gap-2 mt-4 justify-start">
-        <button class="!p-4" type="plane">
-      <span class="flex items-center text-sm gap-2">
-        <i class="fas fa-plus" name="bootstrap-plus-circle"></i>
-        <span (click)="toggleAddItemForm()"
-              class="!text-medium font-primary-500 text-primary-blue-110">{{!addItem ? 'Add Product/Service' : 'Confirm'}}</span>
-      </span>
-        </button>
-      </div>
-
-    </section>
 
 
 

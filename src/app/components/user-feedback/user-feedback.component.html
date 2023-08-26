@@ -1,4 +1,4 @@
-<div class= " text-lg mt-4"><h2 class="text-cobalt"> User Feedback</h2></div>
+<div class= " text-lg mt-4"><h2 class="text-primary"> User Feedback</h2></div>
 
 
 <div class="row pt-4 bg-full">
@@ -12,6 +12,7 @@
       <option selected>Select Issue category </option>
       <option value="Slow application">Slow application</option>
       <option value="Inaccurate balance">Inaccurate balance</option>
+      <option value="Excellent feature">Excellent feature</option>
       <option value="Something else">Something else</option>
     </select>
     <div *ngIf = "feedbackCategory.invalid && feedbackCategory.touched" class="alert alert-danger"> Invalid category</div>
@@ -24,7 +25,7 @@
     </div>
     <pre></pre>
     <div class="form-group">
-     <button [disabled]="feedback.invalid" class="btn-lge text-light" type="submit">Send</button>
+     <button [disabled]="feedback.invalid" class=" btn btn-primary btn-lge text-light" type="submit">Send</button>
      <div [hidden]="feedback.valid || feedback.pristine" class="alert alert-danger"> Kindly complete the form before submitting.</div>
     </div>
     <pre></pre>

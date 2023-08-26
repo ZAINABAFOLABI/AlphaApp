@@ -11,6 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 interface ItemModel {
+ itemCategory:string,
   itemName: string,
   unitPrice: number,
   quantity: number,
@@ -130,6 +131,7 @@ export class SalesComponent implements OnInit {
     });
 
     this.salesRecordForm = this.fb.group({
+      itemCategory: [''],
       itemName: [''],
       quantity: [''],
       total: [''],
