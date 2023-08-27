@@ -14,7 +14,8 @@
     <form #login="ngForm" (ngSubmit)="auth(login)" >
       <div class="form-group p-1 font-dark-300 fs-5">
         <label class="p-1" for="companyEmail">Email</label>
-        <input type="email" #companyEmail="ngModel" name="companyEmail" class="form-control" placeholder="Enter your email" required ngModel >
+        <input type="email" #companyEmail="ngModel" name="companyEmail" class="form-control"
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$" placeholder="Enter your email" required ngModel >
       </div>
       <pre></pre>
 
@@ -42,7 +43,9 @@
   </div>
 
   <div class="flex-fill">
-    <img style="width: 50vw; height: 100vh;" src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/06/07/0c6e1bc5a70aa7cc420d905d5024caae/header-fintech-16x9.jpg" alt="Fintech">
+    <!-- <img style="width: 50vw; height: 100vh;" src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/06/07/0c6e1bc5a70aa7cc420d905d5024caae/header-fintech-16x9.jpg" alt="Fintech"> -->
+  <img  style="width: 50vw; height: 100vh;" src="https://www.ri-team.com/hubfs/grocery_data.jpeg" alt="">
+    <!-- <img style="width: 50vw; height: 100vh;" src="https://pixelplex.io/wp-content/uploads/2022/10/machine-learning-in-fintech-use-cases-meta.jpg" alt=""> -->
   </div>
 
 

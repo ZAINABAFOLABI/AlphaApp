@@ -20,9 +20,9 @@ interface ItemModel {
 
 export interface SalesData {
   id: string;
-  productCategory: string;
+  category: string;
   date: string;
-  salesBudget: string;
+  salesTarget: string;
   actualSales: string;
   variance?: string;
 
@@ -39,7 +39,7 @@ const Categories: string[] = [
   'Mens wears',
   'Mens shoes',
 ];
-const budget: string[] = [
+const salesTargets: string[] = [
   '40000',
   '800000',
   '70000',
@@ -50,7 +50,7 @@ const budget: string[] = [
   '9200000',
 ];
 
-const sales: string[] = [
+const actualSales: string[] = [
   '22000',
   '820000',
   '64000',
@@ -58,6 +58,26 @@ const sales: string[] = [
   '520000',
   '50000',
   '750000'
+]
+
+const salesVariance: string[] = [
+  '10000',
+  '3456',
+  '4500',
+  '5600',
+  '2200',
+  '42000',
+  '13000'
+]
+
+const date: string[] = [
+  'Jan 2023',
+  'Feb 2023',
+  'Mar 2023',
+  'Apr 2023',
+  'May 2023',
+  'Jun 2023',
+  'Jul 2023'
 ]
 
 
@@ -80,6 +100,11 @@ export class SalesComponent implements OnInit {
   itemsToDelete: number[] = [];
   grandTotal = 0;
   chart: any = [];
+  displayedColumns: string[] =
+   ['id', 'category', 'salesTarget', 'actualSales', 'variance', 'date'];
+   dataSource!: MatTableDataSource<SalesData>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   submit(CategoryForm: any){
     console.log("Category set", CategoryForm);
   }
@@ -90,15 +115,6 @@ export class SalesComponent implements OnInit {
 
   currentDate= new Date;
 
-
-
-  // displayedColumns: string[] = ['id', 'productCategory', 'date', 'salesBudget', 'actualSales', 'variance'];
-  // dataSource!: MatTableDataSource<SalesData>;
-  // @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
-
-
-
   recordSales() {
     this.recordingSales = true;
     this.prepareFormForSubmit();
@@ -107,6 +123,7 @@ export class SalesComponent implements OnInit {
     //   .value).subscribe(() => {
     //   this.creatingInvoice = false;
     // });
+    alert("Sales record was successful.");
     console.log("Items sold",this.items, this.grandSalesForm.value);
   }
 
@@ -178,12 +195,54 @@ export class SalesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.chart = new Chart('canvas', {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [
+          {
+            barPercentage: 0.8,
+            categoryPercentage: 0.5,
+            borderRadius: 7,
+            label: 'Sales target',
+            backgroundColor: 'red',
+            data: [57, 48, 23, 56, 46, 44, 56, 21, 52, 40, 52, 55],
+          },
+          {
+            barPercentage: 0.8,
+            categoryPercentage: 0.5,
+            borderRadius: 7,
+            label: 'Actual sales',
+            backgroundColor: 'green',
+            data: [25, 49, 57, 48, 39, 52, 63, 44, 30, 61, 52, 44],
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
 
   }
-  // ngAfterViewInit() {
-  //   this.dataSource.paginator = this.paginator;
-  //   this.dataSource.sort = this.sort;
-  // }
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
 
   addNewItem() {
     this.items.push(this.salesRecordForm.value);
@@ -239,4 +298,23 @@ export class SalesComponent implements OnInit {
     }
   }
 
-}
+  /** Builds and returns a new User. */
+/** Builds and returns a new User. */
+createNewSalesData(id: number): SalesData {
+  const category =
+    Categories[Math.round(Math.random() * (Categories.length - 1))] +
+    ' ' +
+    Categories[Math.round(Math.random() * (Categories.length - 1))].charAt(0) +
+    '.';
+
+  return {
+    id: id.toString(),
+    category: category,
+    salesTarget: salesTargets[Math.round(Math.random() * (salesTargets.length - 1))],
+    actualSales: actualSales[Math.round(Math.random() * (actualSales.length - 1))],
+    variance: salesVariance[Math.round(Math.random() * (actualSales.length - 1))],
+    date: date[Math.round(Math.random() * (actualSales.length - 1))]
+
+  };
+
+}}

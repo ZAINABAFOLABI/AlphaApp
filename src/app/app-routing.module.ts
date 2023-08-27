@@ -15,6 +15,7 @@ import { UtilitiesComponent } from './components/utilities/utilities.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { UserFeedbackComponent } from './components/user-feedback/user-feedback.component';
 import { SalesRecordModalComponent } from './components/sales-record-modal/sales-record-modal.component';
+import { SalesTargetComponent } from './components/sales-target/sales-target.component';
 
 const routes:Routes=[
   {path:'dashboard',component:DashboardComponent},
@@ -30,6 +31,7 @@ const routes:Routes=[
   {path:'userSettings', component:SettingsComponent},
   {path:'feedback', component:UserFeedbackComponent},
   {path:'salesRecord', component:SalesRecordModalComponent},
+  {path:'salesTarget', component:SalesTargetComponent},
   {path:'**',component:NotFoundComponent},
 
 

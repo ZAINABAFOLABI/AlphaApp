@@ -37,14 +37,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { DatePipe } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 // import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SalesService } from './services/sales.service';
+import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { FormsModule } from '@angular/forms';
 import { UserFeedbackComponent } from './components/user-feedback/user-feedback.component';
 import { SalesRecordModalComponent } from './components/sales-record-modal/sales-record-modal.component';
+import { SalesTargetComponent } from './components/sales-target/sales-target.component';
 
 
 
@@ -63,6 +64,7 @@ import { SalesRecordModalComponent } from './components/sales-record-modal/sales
     SalesComponent,
     CashFlowComponent,
     ButtonComponent,
+    RegisterComponent,
     TooltipComponent,
     UploadComponent,
     DonutChartComponent,
@@ -72,6 +74,7 @@ import { SalesRecordModalComponent } from './components/sales-record-modal/sales
     SettingsComponent,
     UserFeedbackComponent,
     SalesRecordModalComponent,
+    SalesTargetComponent,
 
 
 
