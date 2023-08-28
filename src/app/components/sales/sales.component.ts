@@ -144,32 +144,6 @@ export class SalesComponent implements OnInit {
     })
   }
 
-
-  // submit(productCategoryForm:any){
-  //   console.log("Category has been set", productCategoryForm)
-  // }
-
-
-
-
-  // columns = [
-  //   {name: 'Number', prop: 'number'},
-  //   {name: 'Product Category', prop: 'productCategory'},
-  //   {name: 'Sales Budget', prop: 'salesBudget'},
-  //   {name: 'Actual Sales', prop: 'actualSales'},
-  //   {name: 'Variance', prop:'variance'},
-  //   {name: 'Period', prop: 'period'},
-  //   // {name: '', prop: 'usage'},
-  //   {name: '', prop: 'action'},
-  // ];
-
-  // data = [
-  //   {name: 'Number', value:'001'},
-  //   {name: 'Product Category', value:'Shoes'}
-  // ]
-
-  // ColumnMode = ColumnMode;
-
   constructor(private salesService:SalesService,
      private fb: FormBuilder, private datePipe: DatePipe,) {
     this.salesService.getPosts().subscribe(data =>{

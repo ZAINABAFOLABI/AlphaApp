@@ -4,7 +4,13 @@
 <div class="row pt-4 bg-full">
   <div style="height: 500px;" class="col-md-6 mx-auto pl-30 bg-light ">
 
-  <form #feedback="ngForm" (ngSubmit)="submit(feedback)" >
+  <form action="https://api.web3forms.com/submit" method="POST" id="form" #feedback="ngForm" (ngSubmit)="submit(feedback)" >
+    <input type="hidden" name="access_key" value="f527c70d-ebec-4420-9a5f-814ef4d734f9">
+
+     <input type="hidden" name="subject" value="User feedback from Alpha App">
+     <input  type="hidden" name="from_name" value="Alpha app">
+
+     <!-- <input [hidden]="feedback.invalid" type="checkbox" name="botcheck" id="" style="display: none;"> -->
     <div class="form-group pt-4">
     <label class="text-left"  for="feedbackCategory">Category</label><br>
     <select #feedbackCategory = "ngModel" class="form-select form-select-lg mb-3" name="feedbackCategory"
@@ -24,8 +30,10 @@
       <div [hidden]=" description.valid || description.pristine" class="alert alert-danger">Description is too short</div>
     </div>
     <pre></pre>
+
+    <input type="hidden" name="redirect" value="https://web3forms.com/success">
     <div class="form-group">
-     <button [disabled]="feedback.invalid" class=" btn btn-primary btn-lge text-light" type="submit">Send</button>
+     <button [disabled]="!(feedback.valid || feedback.pristine)" class=" btn btn-primary btn-lge text-light" type="submit">Send</button>
      <div [hidden]="feedback.valid || feedback.pristine" class="alert alert-danger"> Kindly complete the form before submitting.</div>
     </div>
     <pre></pre>

@@ -46,6 +46,7 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { UserFeedbackComponent } from './components/user-feedback/user-feedback.component';
 import { SalesRecordModalComponent } from './components/sales-record-modal/sales-record-modal.component';
 import { SalesTargetComponent } from './components/sales-target/sales-target.component';
+import { FeedbackService } from './services/feedback.service';
 
 
 
@@ -102,7 +103,7 @@ import { SalesTargetComponent } from './components/sales-target/sales-target.com
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage())
   ],
-providers: [AuthService,SalesService,DatePipe],
+providers: [AuthService,SalesService,DatePipe,FeedbackService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

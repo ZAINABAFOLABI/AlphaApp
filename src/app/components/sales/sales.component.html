@@ -35,7 +35,7 @@
           <pre></pre>
 
           <div class="form-group">
-            <button  class="btn btn-lge btn-primary" type="submit">Save changes</button>
+            <button [disabled]="form.invalid"  class="btn btn-lge btn-primary" type="submit">Save changes</button>
           </div>
 
         </form>
@@ -223,7 +223,7 @@
      <!-- Sales target and actual sales bar chart -->
      <div class="col-8">
       <div>
-        <span>Transactions</span>
+        <span>Sales</span>
         <canvas style="max-height: 270px;" id="canvas">{{chart}}</canvas>
 
         <div class="text-center">Months</div>
