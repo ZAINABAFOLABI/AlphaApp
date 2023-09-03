@@ -25,7 +25,7 @@ implements OnInit {
   public pieChartLegend = true;
   public pieChartPlugins = [];
 
-user="Chidimma Nwanya";
+user="Alpha Admin";
 client:User;
   constructor(public datePipe:DatePipe) {
     let currentDate = this.datePipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
@@ -33,8 +33,8 @@ client:User;
     // monkeyPatchChartJsTooltip();
     // monkeyPatchChartJsLegend();
     this.client={
-      firstName:'Chidimma',
-      lastName:'Nwanya',
+      firstName:'Alpha',
+      lastName:'Admin',
       annualPlayBudget:{
         totalPlay:50000000,
         totalSpent:32000000,

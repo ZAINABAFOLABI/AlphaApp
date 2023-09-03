@@ -180,7 +180,7 @@ export class SalesComponent implements OnInit {
             borderRadius: 7,
             label: 'Sales target',
             backgroundColor: 'red',
-            data: [57, 48, 23, 56, 46, 44, 56, 21, 52, 40, 52, 55],
+            data: [57, 48, 23, 56, 46, 44, 56, 60, 52, 40, 52, 55],
           },
           {
             barPercentage: 0.8,
