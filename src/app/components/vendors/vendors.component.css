@@ -4,3 +4,13 @@
   font-weight: 600;
   color: #3d59ab;
 }
+
+/* .w-full{
+  width: 1000px;
+  height: 1000px;
+  background-color: aliceblue;
+} */
+
+table {
+  width: 100%;
+}

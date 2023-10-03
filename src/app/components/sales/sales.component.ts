@@ -91,6 +91,7 @@ const date: string[] = [
 export class SalesComponent implements OnInit {
   pageTitle="Sales Analytics";
   subHeading="All your sales budget performance";
+  today = new Date();
   items: ItemModel[] = [];
   addItem = false;
   grandSalesForm: FormGroup;

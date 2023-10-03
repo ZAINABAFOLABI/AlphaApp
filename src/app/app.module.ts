@@ -47,6 +47,7 @@ import { UserFeedbackComponent } from './components/user-feedback/user-feedback.
 import { SalesRecordModalComponent } from './components/sales-record-modal/sales-record-modal.component';
 import { SalesTargetComponent } from './components/sales-target/sales-target.component';
 import { FeedbackService } from './services/feedback.service';
+import { VendorService } from './services/vendor.service';
 
 
 
@@ -90,6 +91,7 @@ import { FeedbackService } from './services/feedback.service';
     CommonModule,
     NgxDatatableModule,
     NgChartsModule,
+    BrowserAnimationsModule,
     NgxsModule,
     // MatPaginatorModule,
     // MatFormFieldModule,
@@ -103,7 +105,7 @@ import { FeedbackService } from './services/feedback.service';
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage())
   ],
-providers: [AuthService,SalesService,DatePipe,FeedbackService],
+providers: [AuthService,SalesService,DatePipe,FeedbackService,VendorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

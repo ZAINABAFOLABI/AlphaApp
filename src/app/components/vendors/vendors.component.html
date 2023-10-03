@@ -1,3 +1,119 @@
 <h3 class="text-center text-cobalt text-deco-2">{{pageTitle}}
+
+  <p>{{getSemester | json}} BBB</p>
+
+
+  <div class="text-center w-full">
+    <h4>Student records</h4>
+    <!-- <ngx-datatable class="material container striped" [rows]="listSemesterDetails" [columnMode]="'flex'"
+    [headerHeight]="50" [footerHeight]="50" rowHeight="auto" >
+
+    <ngx-datatable-column name="Course code" [flexGrow]="1" [minWidth]="100" [maxWidth]="150">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <span>{{row.semesterCourseId}}</span>
+
+      </ng-template>
+
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Course title" [flexGrow]="1" [minWidth]="150" [maxWidth]="220">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        {{row.semesterCourseTitle}}
+
+      </ng-template>
+
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Semester Id" [flexGrow]="1" [minWidth]="100" [maxWidth]="150">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        {{row.semesterId}}
+
+      </ng-template>
+
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Semester name" [flexGrow]="1" [minWidth]="150" [maxWidth]="220">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        {{row.semesterName}}
+
+      </ng-template>
+
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="Start date" [flexGrow]="1" [minWidth]="100" [maxWidth]="150">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        {{row.startDate}}
+
+      </ng-template>
+
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="End date" [flexGrow]="1" [minWidth]="100" [maxWidth]="150">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        {{row.endDate}}
+
+      </ng-template>
+
+    </ngx-datatable-column>
+
+    <ngx-datatable-column name="" [flexGrow]="1" [minWidth]="100" [maxWidth]="150">
+      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+        <button class="btn btn-lg btn-primary" type="button">Update</button>
+
+      </ng-template>
+
+    </ngx-datatable-column>
+
+    </ngx-datatable> -->
+
+    <!-- Angular material data table -->
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- Position Column -->
+      <!-- <ng-container matColumnDef="semesterCourseId">
+        <th mat-header-cell *matHeaderCellDef> Course code </th>
+        <td mat-cell *matCellDef="let element"> {{element.semesterCourseId}} </td>
+      </ng-container> -->
+
+      <!-- Name Column -->
+      <!-- <ng-container matColumnDef="semesterCourseTitle">
+        <th mat-header-cell *matHeaderCellDef> Course title </th>
+        <td mat-cell *matCellDef="let element"> {{element.semesterCourseTitle}} </td>
+      </ng-container> -->
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight</th>
+        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> Position </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+  </div>
   <app-default></app-default>
 </h3>
