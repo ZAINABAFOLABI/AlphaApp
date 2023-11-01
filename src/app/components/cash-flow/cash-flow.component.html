@@ -1,3 +1,474 @@
+<button mat-raised-button>Save</button>
+
+<!-- Mat Typography -->
+<div class="mat-display-4">
+  Display 4
+</div>
+<div class="mat-display-3">
+  Display 3
+</div>
+<div class="mat-display-2">
+  Display 2
+</div>
+<div class="mat-display-1">
+  Display 1
+</div>
+
+<div class="mat-headline">
+  H1
+</div>
+
+<div class="mat-title">
+  H2
+</div>
+<div class="mat-subheading-2">
+ H3
+</div>
+<div class="mat-subheading-1">
+  H4
+</div>
+
+<div class="typography">
+  <h1>H1</h1>
+  <h2>H2</h2>
+  <h3>H3</h3>
+  <h4>H4</h4>
+</div>
+
+<!-- Material Button -->
+<div>
+  <button mat-button>Click</button>
+  <button mat-raised-button>Click</button>
+  <button mat-flat-button>Click</button>
+  <button mat-stroked-button>Click</button>
+</div>
+
+<!-- Cicular buttons -->
+<div>
+  <button mat-icon-button>Icon</button>
+  <button mat-fab>Fab</button>
+  <button mat-mini-fab>Mini Fab</button>
+</div>
+
+<!-- Color buttons -->
+<div>
+  <button color="primary" mat-button> Primary </button>
+  <button color="warn" disableRipple mat-raised-button> Warn </button>
+  <button color="accent" mat-flat-button> Accent</button>
+
+</div>
+
+<!-- Button Toggle -->
+<div>
+  <mat-button-toggle #toggleBtn>Toggle</mat-button-toggle>
+  {{toggleBtn.checked}}
+</div>
+
+<!-- Button toggle as radio -->
+<div>
+  <mat-button-toggle-group #radioToggleGroup="matButtonToggleGroup" >
+    <mat-button-toggle value="HTML">HTML</mat-button-toggle>
+    <mat-button-toggle value="CSS">CSS</mat-button-toggle>
+    <mat-button-toggle value="TAILWIND">TAILWIND</mat-button-toggle>
+  </mat-button-toggle-group>
+  {{radioToggleGroup.value}}
+</div>
+
+<!-- Button toggle as checkbox, include multiple -->
+<div>
+  <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" multiple>
+    <mat-button-toggle value="HTML">HTML</mat-button-toggle>
+    <mat-button-toggle value="CSS">CSS</mat-button-toggle>
+    <mat-button-toggle value="TAILWIND">TAILWIND</mat-button-toggle>
+  </mat-button-toggle-group>
+  {{toggleGroup.value}}
+</div>
+
+<!-- Mat icons -->
+<div>
+  <span><mat-icon>home</mat-icon></span>
+  <span><mat-icon>delete</mat-icon></span>
+</div>
+
+<!-- Mat Badge Color, Position, Size, Overlap -->
+
+<div>
+  <span matBadgeColor="accent" [matBadge]="notifications" matBadgeOverlap="false" [matBadgeHidden]="notifications === 0" matBadgeSize="small" matBadge="5">Notifications</span>
+</div>
+<div>
+  <span matBadgeColor="warn" matBadgeOverlap="false" matBadgeSize="medium" matBadge="5">Notifications</span>
+</div>
+<div>
+  <span matBadgeColor="accent" matBadgePosition="below before" matBadge="3">Notifications</span>
+</div>
+<div>
+  <span matBadgeColor="primary" matBadgeSize="large" matBadgePosition="below after" matBadge="2">Notifications</span>
+</div>
 <h3 class="text-center text-cobalt text-deco-2">{{pageTitle}}
-  <app-default></app-default>
+
+<!-- Mat Progress spinner -->
+<div>
+<mat-progress-spinner value="100"></mat-progress-spinner>
+  <button (click)="fetchData()">View student</button>
+  <mat-spinner color="accent" *ngIf="displaySpinner"></mat-spinner>
+</div>
+
+<!-- Mat tool bar, navbar -->
+<div>
+  <mat-toolbar class="navbar" color="accent">
+    <div>Keil</div>
+    <div>
+      <span>Home</span>
+      <span>About</span>
+      <span>Services</span>
+    </div>
+  </mat-toolbar>
+</div>
+
+<!-- Mat Side nav bar -->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">Burgers</mat-sidenav>
+  <mat-sidenav-content > Variants
+    <button (click)="opened=!opened">Toggle</button>
+    <button (click)="sidenav.open()">Open</button>
+    <button (click)="sidenav.close()">Close</button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- Mat Autocomplete -->
+<div>
+
+
+<form class="example-form ">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Number</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+</div>
+
+<!-- MAT DATE PICKER -->
+
+<!-- <mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<button mat-raised-button (click)="picker.open()">Open</button> -->
+
+
+<!-- Mat Buttons -->
+<section>
+  <div class="example-label">Basic</div>
+  <div class="example-button-row">
+    <button mat-button>Basic</button>
+    <button mat-button color="primary">Primary</button>
+    <button mat-button color="accent">Accent</button>
+    <button mat-button color="warn">Warn</button>
+    <button mat-button disabled>Disabled</button>
+    <a mat-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+
+<section>
+  <div class="example-label">Raised</div>
+  <div class="example-button-row">
+    <button mat-raised-button>Basic</button>
+    <button mat-raised-button color="primary">Primary</button>
+    <button mat-raised-button color="accent">Accent</button>
+    <button mat-raised-button color="warn">Warn</button>
+    <button mat-raised-button disabled>Disabled</button>
+    <a mat-raised-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+
+<section>
+  <div class="example-label">Stroked</div>
+  <div class="example-button-row">
+    <button mat-stroked-button>Basic</button>
+    <button mat-stroked-button color="primary">Primary</button>
+    <button mat-stroked-button color="accent">Accent</button>
+    <button mat-stroked-button color="warn">Warn</button>
+    <button mat-stroked-button disabled>Disabled</button>
+    <a mat-stroked-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+
+<section>
+  <div class="example-label">Flat</div>
+  <div class="example-button-row">
+    <button mat-flat-button>Basic</button>
+    <button mat-flat-button color="primary">Primary</button>
+    <button mat-flat-button color="accent">Accent</button>
+    <button mat-flat-button color="warn">Warn</button>
+    <button mat-flat-button disabled>Disabled</button>
+    <a mat-flat-button href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+
+<!-- Mat menu -->
+
+<!-- Basic menu -->
+<!-- <mat-menu #appMenu="matMenu">
+  <button mat-menu-item>Frontend</button>
+  <button mat-menu-item>Backend</button>
+</mat-menu>
+
+<button mat-raised-button [mat-menu-trigger-for]="appMenu">Menu</button> -->
+
+
+<!-- Nested menu -->
+<mat-menu #appMenu="matMenu">
+  <button mat-menu-item [mat-menu-trigger-for]="subMenu">Frontend</button>
+  <button mat-menu-item>Backend</button>
+</mat-menu>
+
+<button mat-raised-button [mat-menu-trigger-for]="appMenu" x-position="after" y-position="above">
+  Menu
+</button>
+<mat-menu #subMenu="matMenu">
+  <button mat-menu-item>
+   <a routerLink="/sales">Angular</a>
+  </button>
+  <button mat-menu-item>Vue</button>
+  <button mat-menu-item>React</button>
+  <button mat-menu-item>Svelte</button>
+
+</mat-menu>
+
+<!-- Mat card, see other card uses in the documentation, can be used for forms, image display etc -->
+<mat-card>Simple card</mat-card>
+
+<mat-card style="padding: 20px;">Basic card</mat-card>
+<mat-card>
+  <mat-card-title>
+    Card title
+  </mat-card-title>
+  <mat-card-content>
+    This is the card content
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-flat-button>Sign in</button>
+  </mat-card-actions>
+</mat-card>
+
+<!-- Mat Tab, highly useful for grouping invoices to active, inactive, draft -->
+<mat-tab-group #tabRef (selectdTabChange)="logChange(tabRef.selectedIndex)">
+  <mat-tab label="Angular">Angular content</mat-tab>
+  <mat-tab label="React">React content</mat-tab>
+  <mat-tab label="Vue">Vue content</mat-tab>
+</mat-tab-group>
+{{tabRef.selectedIndex}}
+
+<PRE></PRE>
+<!-- Mat stepper, form stages, optional, vertical, horizontal  -->
+<mat-vertical-stepper linear>
+  <mat-step label="Shipping address" [completed]="stage">
+<p>Shipping address details</p>
+<form #form ="ngForm" (ngSubmit)="save(form)" >
+  <div class="form-group">
+    <label for="category">Product Category</label>
+    <input name="category" #category="ngModel" ngModel type="text" class="form-control"
+    minlength="3" required>
+  </div>
+  <pre></pre>
+
+  <div class="form-group">
+    <button [disabled]="form.invalid"  class="btn btn-lge btn-primary" type="submit">Save changes</button>
+  </div>
+
+</form>
+<div> <button matStepperNext mat-button>Next</button></div>
+  </mat-step>
+  <mat-step label="Billing address" completed="false">
+<p>Billing address</p>
+<div> <button matStepperPrevious mat-button>Back</button></div>
+<div> <button matStepperNext mat-button>Next</button></div>
+  </mat-step>
+  <mat-step label="Placed order" completed="false">
+    <p>Order details</p>
+    <div> <button matStepperPrevious mat-button>Previous</button></div>
+  </mat-step>
+</mat-vertical-stepper>
+
+<pre></pre>
+
+<!-- Mat Form field, input, matLabel can be alway, never,or auto, hideRequiredMarker = * -->
+<!-- Note appearance can be standard, fill, legacy, outline -->
+<!-- Update the form colorith the color property to be warn, accent, .. -->
+<mat-form-field appearance="legacy">
+  <mat-label floatLabel="always">Name</mat-label>
+  <input matInput type="text" required>
+  <mat-hint>Minimum 3 characters</mat-hint>
+</mat-form-field>
+
+<mat-form-field appearance="standard">
+  <mat-label floatLabel="always">Name</mat-label>
+  <input matInput type="text" required>
+  <mat-hint>Minimum 3 characters</mat-hint>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label floatLabel="always">Name</mat-label>
+  <input matInput type="text" required>
+  <mat-hint>Minimum 3 characters</mat-hint>
+</mat-form-field>
+
+<mat-form-field appearance="outline">
+  <mat-label floatLabel="always">Name</mat-label>
+  <input matInput type="text" required>
+  <mat-hint>Minimum 3 characters</mat-hint>
+</mat-form-field>
+
+
+<!-- Mat select, n.b changing colors-->
+<!-- multiple for multiple select -->
+<mat-form-field>
+  <mat-label>Framework</mat-label>
+  <mat-select [(value)] ="selectedValue" multiple>
+    <mat-option>None</mat-option>
+    <mat-optgroup label="Frontend framework">
+      <mat-option  style="color: red;" value="Angular">Angular</mat-option>
+      <mat-option color="warn"  value="React">React</mat-option>
+      <mat-option value="Vue">Vue</mat-option>
+    </mat-optgroup>
+
+    <mat-optgroup label="Backend framework">
+      <mat-option  style="color: red;" value="Laravel">Laravel</mat-option>
+      <mat-option color="warn"  value="Django">Django</mat-option>
+    </mat-optgroup>
+
+  </mat-select>
+</mat-form-field>
+{{selectedValue}}
+
+<pre></pre>
+
+<!-- Mat checkbox -->
+<mat-checkbox>Subscribe</mat-checkbox>
+<mat-checkbox color="warn" labelPosition="before">Subscribe</mat-checkbox>
+<pre></pre>
+
+<!-- Mat radio -->
+<mat-radio-group>
+  <mat-radio-button value="HTML">HTML</mat-radio-button>
+  <mat-radio-button value="CSS">CSS</mat-radio-button>
+  <mat-radio-button value="JAVA">JAVA</mat-radio-button>
+</mat-radio-group>
+
+<br>
+<!-- Mat date picker, start date property with year view -->
+<!-- Restrict the date range to a given period -->
+<mat-form-field>
+  <input matInput [matDatepicker]="myDatePicker" [min]="minDate" [max]="maxDate">
+  <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+  <mat-datepicker #myDatePicker></mat-datepicker>
+
+</mat-form-field>
+<br>
+
+<!-- PREVENT SATURDAY & SUNDAY DATES -->
+<mat-form-field  appearance="fill">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+<!-- Mat tooltip -->
+
+
+
+
+
+<!-- <section>
+  <div class="example-label">Icon</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+        <mat-icon>home</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" aria-label="Example icon button with a menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button disabled aria-label="Example icon button with a open in new tab icon">
+        <mat-icon>open_in_new</mat-icon>
+      </button>
+    </div>
+  </div>
+</section> -->
+
+<!-- <section>
+  <div class="example-label">FAB</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+          <mat-icon>bookmark</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-fab color="warn" aria-label="Example icon button with a home icon">
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-fab disabled aria-label="Example icon button with a heart icon">
+          <mat-icon>favorite</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- <section>
+  <div class="example-label">Mini FAB</div>
+  <div class="example-button-row">
+    <div class="example-flex-container">
+      <div class="example-button-container">
+        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+          <mat-icon>plus_one</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+          <mat-icon>filter_list</mat-icon>
+        </button>
+      </div>
+      <div class="example-button-container">
+        <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
+          <mat-icon>home</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+  <!-- <app-default></app-default> -->
 </h3>

@@ -16,9 +16,15 @@ import { SettingsComponent } from './components/settings/settings.component';
 import { UserFeedbackComponent } from './components/user-feedback/user-feedback.component';
 import { SalesRecordModalComponent } from './components/sales-record-modal/sales-record-modal.component';
 import { SalesTargetComponent } from './components/sales-target/sales-target.component';
+import { AuthService } from './services/auth.service';
+import { AuthguardService } from './authguard.service';
+import { UtilitiesModule } from './utilities/utilities.module';
+
 
 const routes:Routes=[
-  {path:'dashboard',component:DashboardComponent},
+  {path:'', loadChildren: ()=> import('./utilities/utilities.module').then(b =>b.UtilitiesModule)
+},
+  {path:'dashboard',component:DashboardComponent, },
   {path:'login',component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'default', component:DefaultComponent},

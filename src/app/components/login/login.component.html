@@ -11,10 +11,10 @@
       <div>Continue to your account</div>
       <pre></pre>
 
-    <form #login="ngForm" (ngSubmit)="auth(login)" >
+    <form #login="ngForm" (ngSubmit)="enableLogin(login)" >
       <div class="form-group p-1 font-dark-300 fs-5">
-        <label class="p-1" for="companyEmail">Email</label>
-        <input type="email" #companyEmail="ngModel" name="companyEmail" class="form-control"
+        <label class="p-1" for="email">Email</label>
+        <input type="email" #email="ngModel" name="email" class="form-control"
         pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$" placeholder="Enter your email" required ngModel >
       </div>
       <pre></pre>
@@ -26,9 +26,9 @@
       <pre></pre>
 
       <div class="pt-4 form-group">
-        <a routerLink="/dashboard">
-          <button [disabled]="login.invalid" class="btn btn-lge btn-primary text-light" type="submit"> Log In </button>
-        </a>
+       <!-- <a routerLink="/dashboard"> -->
+          <button  [disabled]="login.invalid" class="btn btn-lge btn-primary text-light" type="submit"> Log In </button>
+        <!-- </a> -->
         <div [hidden]="login.valid || login.pristine" class="alert alert-danger"> Invalid login credentials.</div>
       </div>
 

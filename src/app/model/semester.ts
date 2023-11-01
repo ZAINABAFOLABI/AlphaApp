@@ -1,8 +1,10 @@
 export interface Semester {
-semesterCourseId:string,
-semesterCourseTitle:string,
+
+courseId:string,
+courseTitle:string,
 startDate: string,
 endDate:string,
 semesterId:string,
 semesterName:string
+
 }

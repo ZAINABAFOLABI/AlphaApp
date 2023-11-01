@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart, ChartType,ChartOptions,ChartDataset } from 'chart.js';
 import { DatePipe } from '@angular/common';
-
-
+import { baseUrl } from 'src/environments/environment';
 import { User } from 'src/app/model/user';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -12,6 +12,7 @@ import { User } from 'src/app/model/user';
 export class DashboardComponent
 implements OnInit {
   today = new Date();
+  message = '';
 
 
 
@@ -27,7 +28,7 @@ implements OnInit {
 
 user="Alpha Admin";
 client:User;
-  constructor(public datePipe:DatePipe) {
+  constructor(public datePipe:DatePipe, private http: HttpClient) {
     let currentDate = this.datePipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
     console.log(currentDate);
     // monkeyPatchChartJsTooltip();
@@ -55,6 +56,13 @@ client:User;
    }
 
   ngOnInit(): void {
+
+    this.http.get(`${baseUrl}login`).subscribe(
+      (res:any)=>{
+        this.message = `Hi ${res.name}`;
+
+      }
+    )
 
   }
 

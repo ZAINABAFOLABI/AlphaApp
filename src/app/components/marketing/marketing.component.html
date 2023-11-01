@@ -1,3 +1,124 @@
-<h3 class="text-center text-cobalt text-deco-2">{{pageTitle}}
-  <app-default></app-default>
-</h3>
+<h3 class="text-center text-cobalt text-deco-2">{{pageTitle}}</h3>
+ <div class="row pt-4 bg-full">
+    <div style="height: 500px;" class="col-md-6 mx-auto pl-30 bg-light ">
+
+      <form  #marketing="ngForm" (ngSubmit)="updateData(marketing.value)">
+      <div class="form-group ">
+      <label for="userId">User Id</label>
+      <input type="number" class="form-control " #userId = ngModel  name ="userId" ngModel required>
+      <div class="alert alert-danger" [hidden]="userId.pristine || userId.valid">
+      User id is invalid </div>
+      </div>
+      <pre></pre>
+
+      <div class="form-group ">
+        <label for="id">Id</label>
+        <input type="number" class="form-control " #id = ngModel  name ="id" ngModel required>
+        <div class="alert alert-danger" [hidden]="id.pristine || id.valid">
+        id is invalid </div>
+        </div>
+        <pre></pre>
+
+      <div class="form-group ">
+        <label for="title">Title</label>
+        <input type="text" class="form-control " #title = ngModel  name ="title" ngModel required>
+        <div class="alert alert-danger" [hidden]="title.pristine || title.valid">
+      Title is invalid </div>
+        </div>
+        <pre></pre>
+
+        <div class="form-group ">
+          <label for="body">Body</label>
+          <input type="text" class="form-control " #body = ngModel  name ="body" ngModel required>
+          <div class="alert alert-danger" [hidden]="userId.pristine || userId.valid">
+         Body is invalid </div>
+          </div>
+          <pre></pre>
+
+          <div class="form-group">
+            <button [disabled]="!(marketing.valid || marketing.pristine)" class=" btn btn-primary btn-lge text-light" type="submit">Send</button>
+            <div [hidden]="marketing.valid || marketing.pristine" class="alert alert-danger"> Kindly complete the form before submitting.</div>
+           </div>
+           <pre></pre>
+
+      </form>
+    </div>
+  </div>
+
+  <div class="row pt-4 bg-full">
+    <div style="height: 500px;" class="col-md-6 mx-auto pl-30 bg-light ">
+
+      <form  #students="ngForm" (ngSubmit)="studentRecord(students.value)">
+      <div class="form-group ">
+      <label for="registrantId">User Id</label>
+      <input  class="form-control " #registrantId = ngModel  name ="registrantId" ngModel required minlength="7" maxlength="7">
+      <div class="alert alert-danger" [hidden]="registrantId.pristine || registrantId.valid">
+      Student id is invalid </div>
+      </div>
+      <pre></pre>
+
+      <div class="form-group ">
+        <label for="registrantFirstname">First name</label>
+        <input type="text" class="form-control " #registrantFirstname = ngModel  name ="registrantFirstname" ngModel required minlength="3">
+        <div class="alert alert-danger" [hidden]="registrantFirstname.pristine || registrantFirstname.valid">
+        First name is required </div>
+        </div>
+        <pre></pre>
+
+      <div class="form-group ">
+        <label for="registrantLastname">Last name</label>
+        <input type="text" class="form-control " #registrantLastname = ngModel  name ="registrantLastname" ngModel required minlength="3">
+        <div class="alert alert-danger" [hidden]="registrantLastname.pristine || registrantLastname.valid">
+      Last name is required </div>
+        </div>
+        <pre></pre>
+
+        <div class="form-group ">
+          <label for="registrantDepartment">Department</label>
+          <input type="text" class="form-control " #registrantDepartment = ngModel  name ="registrantDepartment" ngModel required>
+          <div class="alert alert-danger" [hidden]="registrantDepartment.pristine || registrantDepartment.valid">
+            Department is required </div>
+          </div>
+          <pre></pre>
+
+          <div class="form-group pt-4">
+            <label for="registrantCategory">Category</label><br>
+            <select #registrantCategory = "ngModel" class="form-select form-select-lg mb-3" name="registrantCategory"
+            ngModel required aria-label="Large select example">
+              <option selected>Student category </option>
+              <option value="Home">Home</option>
+              <option value="International">International</option>
+
+            </select>
+            <div *ngIf = "registrantCategory.invalid && registrantCategory.touched" class="alert alert-danger"> Invalid category</div>
+          </div>
+            <pre></pre>
+
+          <div class="form-group ">
+            <label for="registrantEmail">Email</label>
+            <input type="registrantEmail" class="form-control " #registrantEmail = ngModel  name ="registrantEmail" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$" ngModel required>
+            <div class="alert alert-danger" [hidden]="registrantEmail.pristine || registrantEmail.valid">
+              Email is required </div>
+            </div>
+            <pre></pre>
+
+            <div class="form-group ">
+              <label for="password">Password</label>
+              <input type="password" class="form-control " #password = ngModel  name ="password" ngModel required minlength="10">
+              <div class="alert alert-danger" [hidden]="password.pristine || password.valid">
+                Password is too short </div>
+              </div>
+              <pre></pre>
+
+          <div class="form-group">
+            <button [disabled]="!(students.valid || students.pristine)" class=" btn btn-primary btn-lge text-light" type="submit">Send</button>
+            <div [hidden]="students.valid || students.pristine" class="alert alert-danger"> Kindly complete the form before submitting.</div>
+           </div>
+           <pre></pre>
+
+      </form>
+    </div>
+  </div>
+
+    <app-default></app-default>
+

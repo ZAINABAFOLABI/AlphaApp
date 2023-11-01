@@ -10,7 +10,49 @@
   height: 1000px;
   background-color: aliceblue;
 } */
-
-table {
+ table {
   width: 100%;
 }
+
+/* th{
+  margin-left: 20px;
+} */
+
+/* ::ng-deep th.mat-header-cell{
+  width: 140px;
+  min-width: 140px;
+  padding-left: 30px;
+} */
+
+/* mat-header-cell, mat-cell {
+  justify-content: center !important ;
+} */
+
+td, th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.mat-sort-header-container {
+  justify-content: center !important;
+}
+
+
+/*.mat-form-field {
+  font-size: 14px;
+  width: 20%;
+}
+
+
+
+.th-center{
+  text-align: center;
+}
+.th-left{
+  text-align: left;
+}
+.th-right{
+  text-align: right;
+} */
+
+

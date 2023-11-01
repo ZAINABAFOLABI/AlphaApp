@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http'
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -34,11 +34,14 @@ import { NgxsModule } from '@ngxs/store';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { DatePipe } from '@angular/common';
+
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 // import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {MatChipsModule} from '@angular/material/chips'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SalesService } from './services/sales.service';
 import { RegisterComponent } from './components/register/register.component';
@@ -48,6 +51,14 @@ import { SalesRecordModalComponent } from './components/sales-record-modal/sales
 import { SalesTargetComponent } from './components/sales-target/sales-target.component';
 import { FeedbackService } from './services/feedback.service';
 import { VendorService } from './services/vendor.service';
+import { MaterialModule } from './material/material.module';
+import { AuthguardService } from './authguard.service';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
+// import { HomeComponent } from './components/home/home.component';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { UtilitiesModule } from './utilities/utilities.module';
 
 
 
@@ -77,13 +88,18 @@ import { VendorService } from './services/vendor.service';
     UserFeedbackComponent,
     SalesRecordModalComponent,
     SalesTargetComponent,
+    // HomeComponent,
+
 
 
 
 
   ],
   imports: [
-    // NgModule,
+
+
+
+    MatAutocompleteModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
@@ -93,9 +109,16 @@ import { VendorService } from './services/vendor.service';
     NgChartsModule,
     BrowserAnimationsModule,
     NgxsModule,
+    MaterialModule,
+    UtilitiesModule,
+
+    // MatChipsModule,
+
+
     // MatPaginatorModule,
-    // MatFormFieldModule,
+    MatFormFieldModule,
     MatTableModule,
+
     MatSortModule,
     MatInputModule,
     AppRoutingModule,
@@ -103,9 +126,16 @@ import { VendorService } from './services/vendor.service';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
-    provideStorage(() => getStorage())
+    provideStorage(() => getStorage()),
+    StoreModule.forRoot({}, {}),
+    // EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
-providers: [AuthService,SalesService,DatePipe,FeedbackService,VendorService],
+providers: [AuthService,SalesService,DatePipe,FeedbackService,
+  VendorService,AuthguardService,
+  {provide: HTTP_INTERCEPTORS,
+  useClass: AuthInterceptor,
+multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
