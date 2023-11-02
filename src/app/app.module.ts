@@ -54,11 +54,12 @@ import { VendorService } from './services/vendor.service';
 import { MaterialModule } from './material/material.module';
 import { AuthguardService } from './authguard.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { VendorInfoComponent } from './components/vendor-info/vendor-info.component';
 // import { HomeComponent } from './components/home/home.component';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { UtilitiesModule } from './utilities/utilities.module';
+// import { StoreModule } from '@ngrx/store';
+// import { EffectsModule } from '@ngrx/effects';
+// import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+// import { UtilitiesModule } from './utilities/utilities.module';
 
 
 
@@ -88,6 +89,7 @@ import { UtilitiesModule } from './utilities/utilities.module';
     UserFeedbackComponent,
     SalesRecordModalComponent,
     SalesTargetComponent,
+    VendorInfoComponent,
     // HomeComponent,
 
 
@@ -110,7 +112,7 @@ import { UtilitiesModule } from './utilities/utilities.module';
     BrowserAnimationsModule,
     NgxsModule,
     MaterialModule,
-    UtilitiesModule,
+    // UtilitiesModule,
 
     // MatChipsModule,
 
@@ -127,9 +129,9 @@ import { UtilitiesModule } from './utilities/utilities.module';
     provideFirestore(() => getFirestore()),
     provideMessaging(() => getMessaging()),
     provideStorage(() => getStorage()),
-    StoreModule.forRoot({}, {}),
+    // StoreModule.forRoot({}, {}),
     // EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    // StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
   ],
 providers: [AuthService,SalesService,DatePipe,FeedbackService,
   VendorService,AuthguardService,

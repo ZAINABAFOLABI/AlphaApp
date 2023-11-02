@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+// import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private store:Store) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

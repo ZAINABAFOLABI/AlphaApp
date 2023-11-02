@@ -1,0 +1,103 @@
+<!-- Mat stepper, form stages, optional, vertical, horizontal  -->
+<mat-horizontal-stepper linear>
+  <mat-step label="Vendor" [completed]="stage">
+<p>Basic info</p>
+<form #vendorForm ="ngForm" (ngSubmit)="createVendor(vendorForm)" >
+  <div class="form-group">
+    <label for="name">Vendor name</label>
+    <input style="width: 400px;" name="name" #name="ngModel" ngModel type="text" class="form-control"
+    minlength="3" placeholder="Enter vendor name" required>
+
+    <div style="width: 400px;" class="alert alert-danger" [hidden]="name.valid || name.pristine">Vendor name is too short</div>
+  </div>
+  <pre></pre>
+
+  <div class="form-group">
+    <label for="id">Vendor Id</label>
+    <input style="width: 400px;" name="id" #id="ngModel" ngModel type="text" class="form-control"
+    minlength="7" maxlength="7" required>
+    <div style="width: 400px;" class="alert alert-danger" [hidden]="id.valid || id.pristine">Vendor Id is too short</div>
+  </div>
+  <pre></pre>
+
+  <div class="form-group">
+    <label for="email">Vendor email</label>
+    <input style="width: 400px;" name="email" #email="ngModel" ngModel type="email" class="form-control"
+    pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$" placeholder="Enter your email" required>
+    <div style="width: 400px;" class="alert alert-danger" [hidden]="email.valid || email.pristine">Email is invalid</div>
+  </div>
+  <pre></pre>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input style="width: 400px;" name="password" #password="ngModel" ngModel type="password" class="form-control"
+    minlength="10" placeholder="Enter a 10 character password" required>
+    <div style="width: 400px;" class="alert alert-danger" [hidden]="password.valid || password.pristine">Password must be at least ten characters long</div>
+  </div>
+  <pre></pre>
+
+  <div class="form-group">
+    <label for="phone">Vendor phone</label>
+    <input style="width: 400px;" name="phone" #phone="ngModel" ngModel  class="form-control"
+    minlength="11" maxlength="14" placeholder="Enter phone number" required>
+    <div style="width: 400px;" class="alert alert-danger" [hidden]="phone.valid || phone.pristine">Phone number is invalid</div>
+
+  </div>
+  <pre></pre>
+
+  <div class="form-group">
+    <label for="address">Vendor address</label>
+    <input style="width: 400px;" name="address" #address="ngModel" ngModel type="text" class="form-control"
+    minlength="10" placeholder="Enter address with postcode" required>
+  </div>
+  <pre></pre>
+
+  <div class="form-group">
+    <button [disabled]="vendorForm.invalid"  class="btn btn-lge btn-primary" type="submit">Save changes</button>
+  </div>
+
+</form>
+<div> <button matStepperNext mat-button>Next</button></div>
+  </mat-step>
+  <mat-step label="Product" [completed]="stage">
+<p>Product details</p>
+<form #productForm ="ngForm" (ngSubmit)="productCategory(productForm)" >
+
+  <div class="form-group pt-4">
+    <label class="text-left"  for="category">Category</label><br>
+    <select style="width: 400px;" #category = "ngModel" class="form-select form-select-lg mb-3" name="category"
+    ngModel required aria-label="Large select example">
+      <option selected>Select Product category </option>
+      <option value="Fruits">Fruits</option>
+      <option value="Cereal">Cereal</option>
+      <option value="Pastry">Pastry</option>
+      <option value="Oils">Oils</option>
+    </select>
+    <div *ngIf = "category.invalid && category.touched" class="alert alert-danger"> Invalid category</div>
+  </div>
+    <pre></pre>
+
+  <div class="form-group">
+    <label for="product">Product</label>
+    <input style="width: 400px;" name="product" #product="ngModel" ngModel type="text" class="form-control"
+    minlength="10" placeholder="Enter product list" required>
+
+  </div>
+  <pre></pre>
+
+  <div class="form-group">
+    <button [disabled]="productForm.invalid"  class="btn btn-lge btn-primary" type="submit">Save changes</button>
+  </div>
+
+</form>
+
+<div> <button matStepperPrevious mat-button>Back</button></div>
+<div> <button matStepperNext mat-button>Next</button></div>
+  </mat-step>
+  <mat-step label="Product" completed="true">
+    <p>Preview</p>
+    <div> <button matStepperPrevious mat-button>Previous</button></div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+<pre></pre>

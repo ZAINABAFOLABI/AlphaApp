@@ -18,12 +18,13 @@ import { SalesRecordModalComponent } from './components/sales-record-modal/sales
 import { SalesTargetComponent } from './components/sales-target/sales-target.component';
 import { AuthService } from './services/auth.service';
 import { AuthguardService } from './authguard.service';
-import { UtilitiesModule } from './utilities/utilities.module';
+import { VendorInfoComponent } from './components/vendor-info/vendor-info.component';
+// import { UtilitiesModule } from './utilities/utilities.module';
 
 
 const routes:Routes=[
-  {path:'', loadChildren: ()=> import('./utilities/utilities.module').then(b =>b.UtilitiesModule)
-},
+  // {path:'', loadChildren: ()=> import('./utilities/utilities.module').then(b =>b.UtilitiesModule)
+// },
   {path:'dashboard',component:DashboardComponent, },
   {path:'login',component:LoginComponent},
   {path:'register', component:RegisterComponent},
@@ -32,6 +33,7 @@ const routes:Routes=[
   {path:'utilities', component:UtilitiesComponent},
   {path:'sales', component:SalesComponent},
   {path:'vendors', component:VendorsComponent},
+  {path:'vendor', component:VendorInfoComponent},
   {path:'legal', component:LegalComponent},
   {path:'marketing', component:MarketingComponent},
   {path:'userSettings', component:SettingsComponent},
