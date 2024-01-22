@@ -37,6 +37,14 @@
   <pre></pre>
 
   <div class="form-group">
+    <label for="product">Product</label>
+    <input style="width: 400px;" name="product" #product="ngModel" ngModel type="text" class="form-control"
+    minlength="10" placeholder="Enter product list" required>
+
+  </div>
+  <pre></pre>
+
+  <div class="form-group">
     <label for="phone">Vendor phone</label>
     <input style="width: 400px;" name="phone" #phone="ngModel" ngModel  class="form-control"
     minlength="11" maxlength="14" placeholder="Enter phone number" required>

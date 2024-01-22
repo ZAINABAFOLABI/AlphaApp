@@ -14,20 +14,26 @@ export class AuthService {
 
 
   constructor(
-    private provideAuth:Auth,
-    private http:HttpClient
+    // private provideAuth:Auth,
+    public http:HttpClient
   ) {}
   // canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
   //   return true;
   // }
 
-    allowLogin(credentials:any): Observable<any>{
+    allowLogin(credentials:any){
 
-      return this.http.post(`${baseUrl}login`, credentials) }
+      return this.http.post(`${baseUrl}login`, credentials).toPromise(); }
 
 
       logOut(){
         return this.loggedIn = false;
+      }
+
+      login({email, password}:{email:string,password:string}){
+        return this.http.post('login',{
+          email,password,
+        }).toPromise();
       }
 
       isAuthenticated(){

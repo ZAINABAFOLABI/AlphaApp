@@ -37,17 +37,17 @@ responseData!:any;
   }
 
 
-  auth(login:any){
-    if(login.valid){
-      this.authService.allowLogin(login.value).subscribe(result =>{
-        if(result.success){
-          console.log(result);
-        }else{
-          alert(result.error);
-        }
-      })
-    }
-  }
+  // auth(login:any){
+  //   if(login.valid){
+  //     this.authService.allowLogin(login.value).subscribe(result =>{
+  //       if(result.success){
+  //         console.log(result);
+  //       }else{
+  //         alert(result.error);
+  //       }
+  //     })
+  //   }
+  // }
 
 
   enableLogin(login:any){

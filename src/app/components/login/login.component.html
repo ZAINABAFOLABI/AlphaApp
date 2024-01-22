@@ -1,34 +1,36 @@
 
-<div class="d-flex">
+<div class="d-flex bg-light pt-8">
 
   <div style="width: 50vw; height: 100vh;" class="pt-4 flex-fill bg-light ">
-    <span class="icon text-cobalt rounded-3 pr-1 p-1"><i class="fas fa-font fa-2x round-padding text-light"></i></span><span class="text-cobal fs-1  "> Alpha</span>
-    <div class="col-md-6 mx-auto  ">
-      <div class="text-left">  <h2 class="pb-4 pt-8 text-primary">
-        <!-- <i class="fas fa- fa-lg round-padding text-light"></i> -->
-          <span class="text-dark fs-2"> Login</span>
+    <!-- <span class="icon text-cobalt rounded-3  pr-1 p-1"><i class="fas fa-font fa-2x round-padding text-light pl-30"></i></span><span class="text-cobal fs-1  "> Alpha</span> -->
+    <div class="col-md-6 mx-auto  pl-30 ">
+      <div class="text-left">
+
+        <span><i class="fas fa-font fa-lg round-padding text-light pt-8 mb-4"></i></span>
+        <h2 class="pb-4  ">
+          <span class="text-dark fs-2"> Login  to <br> your account</span><br>
       </h2></div>
       <div>Continue to your account</div>
       <pre></pre>
 
     <form #login="ngForm" (ngSubmit)="enableLogin(login)" >
       <div class="form-group p-1 font-dark-300 fs-5">
-        <label class="p-1" for="email">Email</label>
-        <input type="email" #email="ngModel" name="email" class="form-control"
-        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$" placeholder="Enter your email" required ngModel >
+        <!-- <label class="p-1" for="email">Email</label> -->
+        <input type="email" #email="ngModel" name="email" class="form-control input-light w-50"
+        pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$" placeholder="admin@rico.ng" required ngModel >
       </div>
       <pre></pre>
 
       <div class="form-group p-1 fs-5">
-        <label  class="p-1" for="password">Password</label>
-        <input type="password" #password="ngModel" name="password" class="form-control" required ngModel >
+        <!-- <label  class="p-1" for="password">Password</label> -->
+        <input type="password" #password="ngModel" name="password" placeholder="Enter password" class="form-control bg-white w-50 input-light" required ngModel >
       </div>
       <pre></pre>
 
       <div class="pt-4 form-group">
-       <!-- <a routerLink="/dashboard"> -->
-          <button  [disabled]="login.invalid" class="btn btn-lge btn-primary text-light" type="submit"> Log In </button>
-        <!-- </a> -->
+       <a routerLink="/dashboard">
+          <button  [disabled]="login.invalid" class="btn btn-lge bg-cobaltt text-light" type="submit"> Log In </button>
+        </a>
         <div [hidden]="login.valid || login.pristine" class="alert alert-danger"> Invalid login credentials.</div>
       </div>
 
@@ -42,11 +44,11 @@
   </div>
   </div>
 
-  <div class="flex-fill">
-    <img style="width: 50vw; height: 100vh;" src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/06/07/0c6e1bc5a70aa7cc420d905d5024caae/header-fintech-16x9.jpg" alt="Fintech">
+  <!-- <div class="flex-fill">
+    <img style="width: 50vw; height: 100vh;" src="https://media-s3-us-east-1.ceros.com/forbes/images/2021/06/07/0c6e1bc5a70aa7cc420d905d5024caae/header-fintech-16x9.jpg" alt="Fintech"> -->
    <!-- <img  style="width: 50vw; height: 100vh;" src="https://www.ri-team.com/hubfs/grocery_data.jpeg" alt=""> -->
     <!-- <img style="width: 50vw; height: 100vh;" src="https://pixelplex.io/wp-content/uploads/2022/10/machine-learning-in-fintech-use-cases-meta.jpg" alt=""> -->
-  </div>
+  <!-- </div> -->
 
 
 
